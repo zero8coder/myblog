@@ -8378,3 +8378,23 @@ button.close {
   text-color: #E7E7E7;
 }
 
+/* page */
+
+.root-page .page-list .media-right {
+  float: right;
+}
+
+.root-page .page-list a {
+  color: #636b6f;
+}
+
+.root-page .page-list a:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+.root-page .page-list hr {
+  margin-top: 0px;
+  margin-bottom: 11px;
+}
+

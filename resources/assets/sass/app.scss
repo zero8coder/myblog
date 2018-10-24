@@ -38,3 +38,25 @@
     }
 
 }
+
+
+/* page */
+.root-page {
+    .page-list {
+        .media-right {
+            float: right;
+        }
+        a {
+            color: #636b6f;
+            &:hover {
+                color: blue;
+                text-decoration:none;
+            }
+        }
+        hr {
+            margin-top: 0px;
+            margin-bottom: 11px;
+        }
+    }
+
+}
