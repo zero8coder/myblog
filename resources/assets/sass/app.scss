@@ -41,8 +41,13 @@
 
 
 /* page */
-.root-page {
+.root-page, .index-page {
     .page-list {
+
+        .panel-body {
+            padding-bottom:0;
+        }
+
         .media-right {
             float: right;
         }
@@ -56,6 +61,10 @@
         hr {
             margin-top: 0px;
             margin-bottom: 11px;
+        }
+
+        .pagination {
+            margin-top: 0px;
         }
     }
 

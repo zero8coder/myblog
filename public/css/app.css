@@ -8380,21 +8380,35 @@ button.close {
 
 /* page */
 
-.root-page .page-list .media-right {
+.root-page .page-list .panel-body,
+.index-page .page-list .panel-body {
+  padding-bottom: 0;
+}
+
+.root-page .page-list .media-right,
+.index-page .page-list .media-right {
   float: right;
 }
 
-.root-page .page-list a {
+.root-page .page-list a,
+.index-page .page-list a {
   color: #636b6f;
 }
 
-.root-page .page-list a:hover {
+.root-page .page-list a:hover,
+.index-page .page-list a:hover {
   color: blue;
   text-decoration: none;
 }
 
-.root-page .page-list hr {
+.root-page .page-list hr,
+.index-page .page-list hr {
   margin-top: 0px;
   margin-bottom: 11px;
+}
+
+.root-page .page-list .pagination,
+.index-page .page-list .pagination {
+  margin-top: 0px;
 }
 
