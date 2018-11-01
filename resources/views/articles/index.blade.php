@@ -8,6 +8,7 @@
                     <ul class="media-list">
 
                         @foreach ($articles as $article)
+
                             <li class="media">
                                 <a href="#">
                                     <div class="media-left">{{ $article->title }}</div>
@@ -15,7 +16,10 @@
                                 </a>
                             </li>
 
-                            <hr>
+                            @if (! $loop->last)
+                                <hr>
+                            @endif
+
                         @endforeach
 
                     </ul>
