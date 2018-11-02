@@ -19,19 +19,21 @@
         </div>
         <div class="article-page">
             <ul class="pager">
+                @if ( ! is_null($previousArticleID) )
+                    <li class="previous">
+                        <a href="{{ route('articles.show', [$previousArticleID]) }}">
+                            上一篇
+                        </a>
+                    </li>
+                @endif
 
-                <li class="previous">
-                    <a href="{{ route('articles.show', [$previousArticleID]) }}">
-                        上一篇
-                    </a>
-                </li>
-
-                <li class="next">
-                    <a href="{{ route('articles.show', [$nextArticleId]) }}">
-                        下一篇
-                    </a>
-                </li>
-
+                @if ( ! is_null($nextArticleId) )
+                    <li class="next">
+                        <a href="{{ route('articles.show', [$nextArticleId]) }}">
+                            下一篇
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
