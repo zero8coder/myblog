@@ -74,3 +74,30 @@ body {
     }
 
 }
+
+/* 内容页 */
+.article-content{
+    .article-time {
+        text-align: right;
+    }
+    .panel-body {
+        hr {
+            margin-top: 0px;
+        }
+    }
+    .article-page {
+        .pager {
+            li {
+                a {
+                    border-radius: 9px;
+                    color: #636b6f;
+                    &:hover {
+                        color: #fdbfcc;
+                        text-decoration:none;
+                    }
+                }
+            }
+
+        }
+    }
+}

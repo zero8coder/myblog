@@ -10,7 +10,7 @@
                         @foreach ($articles as $article)
 
                             <li class="media">
-                                <a href="#">
+                                <a href="{{ route('articles.show', [$article->id]) }}">
                                     <div class="media-left">{{ $article->title }}</div>
                                     <div class="media-right">{{ $article->created_at->toDateString() }}</div>
                                 </a>

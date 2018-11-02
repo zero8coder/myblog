@@ -12,4 +12,13 @@ class ArticlesController extends Controller
         $articles = Article::paginate(17);
         return view('articles.index', compact('articles'));
     }
+
+    public function show(Article $article)
+    {
+        // 获取 “上一篇” 的 ID
+        $previousArticleID = Article::where('id', '<', $article->id)->max('id');
+        // 同理，获取 “下一篇” 的 ID
+        $nextArticleId = Article::where('id', '>', $article->id)->min('id');
+        return view('articles.show', compact('article', 'previousArticleID', 'nextArticleId'));
+    }
 }

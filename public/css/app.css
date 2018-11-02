@@ -8417,3 +8417,23 @@ body {
   margin-top: 0px;
 }
 
+/* 内容页 */
+
+.article-content .article-time {
+  text-align: right;
+}
+
+.article-content .panel-body hr {
+  margin-top: 0px;
+}
+
+.article-content .article-page .pager li a {
+  border-radius: 9px;
+  color: #636b6f;
+}
+
+.article-content .article-page .pager li a:hover {
+  color: #fdbfcc;
+  text-decoration: none;
+}
+
