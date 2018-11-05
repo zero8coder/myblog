@@ -8423,6 +8423,14 @@ body {
   margin-top: 0px;
 }
 
+.root-page .page-list .pagination .active span,
+.index-page .page-list .pagination .active span,
+.categories-index-page .page-list .pagination .active span {
+  background-color: #ddd;
+  border-color: #ddd;
+  color: #555;
+}
+
 /* 内容页 */
 
 .article-content .article-time {

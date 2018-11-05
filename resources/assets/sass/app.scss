@@ -70,6 +70,15 @@ body {
 
         .pagination {
             margin-top: 0px;
+
+            .active {
+                span {
+                    background-color: #ddd;
+                    border-color: #ddd;
+                    color: #555;
+                }
+            }
+
         }
     }
 
