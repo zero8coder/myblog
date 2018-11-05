@@ -21,7 +21,11 @@
             <ul class="pager">
                 @if ( ! is_null($previousArticleID) )
                     <li class="previous">
-                        <a href="{{ route('articles.show', [$previousArticleID]) }}">
+                        @if (is_null($category))
+                            <a href="{{ route('articles.show', [$previousArticleID]) }}">
+                        @else
+                            <a href="{{ route('articles.show', [$previousArticleID, $category->id]) }}">
+                        @endif
                             上一篇
                         </a>
                     </li>
@@ -29,7 +33,11 @@
 
                 @if ( ! is_null($nextArticleId) )
                     <li class="next">
-                        <a href="{{ route('articles.show', [$nextArticleId]) }}">
+                        @if (is_null($category))
+                            <a href="{{ route('articles.show', [$nextArticleId]) }}">
+                        @else
+                            <a href="{{ route('articles.show', [$nextArticleId, $category->id]) }}">
+                        @endif
                             下一篇
                         </a>
                     </li>
