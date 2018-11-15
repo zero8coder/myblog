@@ -13,7 +13,7 @@
                                 @if (is_null($category))
                                     <a href="{{ route('articles.show', [$article->id]) }}">
                                 @else
-                                    <a href="{{ route('articles.show', [$article->id, $category->id]) }}">
+                                    <a href="{{ route('articles.showWithCategory', [$category->id, $article->id]) }}">
                                 @endif
                                     <div class="media-left">{{ $article->title }}</div>
                                     <div class="media-right">{{ $article->created_at->toDateString() }}</div>
