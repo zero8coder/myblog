@@ -12,6 +12,7 @@
 
                     <div class="panel-body">
                         @include('admin.shared._errors')
+                        @include('admin.shared._messages')
 
                         <form method="POST" action="{{ route('admin.login') }}">
                             {{ csrf_field() }}
