@@ -8451,3 +8451,21 @@ body {
   text-decoration: none;
 }
 
+/* 后台登录页 */
+
+.admin-login-page .panel-default {
+  margin: auto;
+  margin-top: 200px;
+  width: 330px;
+  height: 200px;
+}
+
+.admin-login-page .btn-primary {
+  background-color: #E7E7E7;
+  border-color: #E7E7E7;
+}
+
+.admin-login-page .btn {
+  width: 130px;
+}
+

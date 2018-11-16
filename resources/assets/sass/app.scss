@@ -110,3 +110,22 @@ body {
         }
     }
 }
+
+/* 后台登录页 */
+.admin-login-page {
+    .panel-default {
+        margin: auto;
+        margin-top: 200px;
+        width: 330px;
+        height: 200px;
+    }
+
+    .btn-primary {
+        background-color: #E7E7E7;
+        border-color: #E7E7E7;
+    }
+
+    .btn {
+        width: 130px;
+    }
+}
