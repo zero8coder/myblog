@@ -129,3 +129,17 @@ body {
         width: 130px;
     }
 }
+
+/* 后台左侧导航栏 */
+.leftnav {
+    .secondMenu {
+        width: 260px;
+        height: 42px;
+        list-style: none;
+
+        li {
+            height: 42px;
+            line-height: 42px;
+        }
+    }
+}

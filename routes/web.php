@@ -7,3 +7,5 @@ Route::get('/categories/{category}', 'CategoriesController@index')->name('catego
 
 Route::get('/admin/login', 'Admin\SessionsController@create')->name('admin.login');
 Route::post('/admin/login', 'Admin\SessionsController@store')->name('admin.login');
+
+Route::get('/admin/index', 'Admin\IndexController@index')->name('admin.index');
