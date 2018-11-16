@@ -6,3 +6,4 @@ Route::get('/categories/{category}/articles/{article}', 'ArticlesController@show
 Route::get('/categories/{category}', 'CategoriesController@index')->name('categories.index');
 
 Route::get('/admin/login', 'Admin\SessionsController@create')->name('admin.login');
+Route::post('/admin/login', 'Admin\SessionsController@store')->name('admin.login');

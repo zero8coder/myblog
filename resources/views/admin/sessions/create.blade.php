@@ -9,9 +9,11 @@
         <div class="container">
             <div class="col-md-offset-1 col-md-10">
                 <div class="panel panel-default">
-                    <div class="panel-body">
 
-                        <form method="POST" action="">
+                    <div class="panel-body">
+                        @include('admin.shared._errors')
+
+                        <form method="POST" action="{{ route('admin.login') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group">
