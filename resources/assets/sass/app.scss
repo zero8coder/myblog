@@ -44,6 +44,18 @@ body {
 
 }
 
+.pagination {
+    margin-top: 0px;
+
+    .active {
+        span {
+            background-color: #ddd;
+            border-color: #ddd;
+            color: #555;
+        }
+    }
+
+}
 
 /* page */
 .root-page, .index-page, .categories-index-page {
@@ -68,18 +80,7 @@ body {
             margin-bottom: 11px;
         }
 
-        .pagination {
-            margin-top: 0px;
 
-            .active {
-                span {
-                    background-color: #ddd;
-                    border-color: #ddd;
-                    color: #555;
-                }
-            }
-
-        }
     }
 
 }
@@ -143,3 +144,23 @@ body {
         }
     }
 }
+
+/*删除图片按钮*/
+
+.del-img-btn {
+    width: 16px;
+    height: 16px;
+    border: 0;
+    background:url('/img/del.png')
+}
+
+/*修改图片按钮*/
+
+.edit-img-btn {
+    width: 16px;
+    height: 16px;
+    border: 0;
+    background:url('/img/edit.png')
+}
+
+

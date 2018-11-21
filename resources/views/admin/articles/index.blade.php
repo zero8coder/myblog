@@ -10,12 +10,14 @@
             <tr>
                 <td>
                     <a href="{{ route('admin.articles.edit', $article->id)}}">
-                        <button type="button" class="btn btn-sm btn-success ">修改</button>
+                        <input name="" type="button" class="edit-img-btn" />
                     </a>
-                    <form action="{{ route('admin.articles.destroy', $article->id) }}" method="post">
+                    &nbsp;
+                    <form action="{{ route('admin.articles.destroy', $article->id) }}" method="post" style="display:inline">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-sm btn-danger ">删除</button>
+
+                        <input name="" type="submit" class="del-img-btn"  value=''/>
                     </form>
                 </td>
                 <td>{{ $article->category->name }}</td>
@@ -24,8 +26,8 @@
             </tr>
         @endforeach
     </table>
-    <div class="text-center">
-        {!! $articles->render() !!}
-    </div>
+</div>
+<div class="text-center">
+    {!! $articles->render() !!}
 </div>
 @stop

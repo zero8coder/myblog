@@ -8383,6 +8383,16 @@ body {
   text-color: #E7E7E7;
 }
 
+.pagination {
+  margin-top: 0px;
+}
+
+.pagination .active span {
+  background-color: #ddd;
+  border-color: #ddd;
+  color: #555;
+}
+
 /* page */
 
 .root-page .page-list .panel-body,
@@ -8415,20 +8425,6 @@ body {
 .categories-index-page .page-list hr {
   margin-top: 0px;
   margin-bottom: 11px;
-}
-
-.root-page .page-list .pagination,
-.index-page .page-list .pagination,
-.categories-index-page .page-list .pagination {
-  margin-top: 0px;
-}
-
-.root-page .page-list .pagination .active span,
-.index-page .page-list .pagination .active span,
-.categories-index-page .page-list .pagination .active span {
-  background-color: #ddd;
-  border-color: #ddd;
-  color: #555;
 }
 
 /* 内容页 */
@@ -8480,5 +8476,23 @@ body {
 .leftnav .secondMenu li {
   height: 42px;
   line-height: 42px;
+}
+
+/*删除图片按钮*/
+
+.del-img-btn {
+  width: 16px;
+  height: 16px;
+  border: 0;
+  background: url("/img/del.png");
+}
+
+/*修改图片按钮*/
+
+.edit-img-btn {
+  width: 16px;
+  height: 16px;
+  border: 0;
+  background: url("/img/edit.png");
 }
 
