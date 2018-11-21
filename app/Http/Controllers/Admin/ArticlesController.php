@@ -26,4 +26,9 @@ class ArticlesController extends Controller
 
         echo "修改";
     }
+
+    public function create()
+    {
+        echo "添加";
+    }
 }

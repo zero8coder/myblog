@@ -2,7 +2,8 @@
 @section('title', '首页')
 @section('content')
 @include('admin.shared._messages')
-
+<br>
+<br>
 <div class="panel panel-default">
     <table class="table">
         <th>操作</th><th>分类</th><th>标题</th><th>创建时间</th>

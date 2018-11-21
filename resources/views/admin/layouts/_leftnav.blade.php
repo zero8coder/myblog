@@ -1,13 +1,15 @@
-<div class="leftnav">
-    <ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+<div class="col-md-2 side-bar">
+    <div class="leftnav">
+        <ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
 
-        <li class="active">
-            <a href="#collapseThree" data-toggle="collapse">文章管理</a>
+            <li>
+                <a href="{{ route("admin.articles.create") }}">写文章</a>
+            </li>
 
-        </li>
+            <li>
+                <a href="{{ route("admin.articles.index") }}">文章管理</a>
+            </li>
 
-        <li><a href="#" data-toggle="collapse">系统管理</a></li>
-
-        <li>
-    </ul>
+        </ul>
+    </div>
 </div>

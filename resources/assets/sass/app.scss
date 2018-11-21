@@ -133,16 +133,26 @@ body {
 
 /* 后台左侧导航栏 */
 .leftnav {
-    .secondMenu {
-        width: 260px;
-        height: 42px;
-        list-style: none;
 
+    .nav {
         li {
-            height: 42px;
-            line-height: 42px;
+
+            a {
+                color: #636b6f;
+                background-color: #636b6f36;
+            }
         }
     }
+    .nav-pills {
+        li {
+            .active {
+                a{
+                    background-color: rgb(204, 204, 204);
+                }
+            }
+        }
+    }
+
 }
 
 /*删除图片按钮*/
@@ -162,5 +172,6 @@ body {
     border: 0;
     background:url('/img/edit.png')
 }
+
 
 
