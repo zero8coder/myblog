@@ -8,10 +8,9 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
-    public function index()
+    public function index(Category $category)
     {
         $articles = Article::orderby('id', 'desc')->paginate(17);
-        $category = null;
         return view('articles.index', compact('articles', 'category'));
     }
 

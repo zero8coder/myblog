@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', '详情页')
+@section('title', $article->title)
 @section('content')
     <div class="col-lg-9 col-md-9 article-content">
         <div class="panel panel-default">
