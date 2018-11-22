@@ -1,8 +1,8 @@
 @extends('admin.layouts.default')
-@section('title', '首页')
+@section('title', '文章管理')
 @section('content')
-@include('admin.shared._messages')
 <br>
+@include('admin.shared._messages')
 <br>
 <div class="panel panel-default">
     <table class="table">
