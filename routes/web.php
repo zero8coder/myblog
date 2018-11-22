@@ -8,7 +8,7 @@ Route::get('/categories/{category}', 'CategoriesController@index')->name('catego
 
 Route::get('/admin/login', 'Admin\SessionsController@create')->name('admin.login');
 Route::post('/admin/login', 'Admin\SessionsController@store')->name('admin.login');
-Route::get('/admin/index', 'Admin\IndexController@index')->name('admin.index');
+Route::get('/admin/index', 'Admin\ArticlesController@index')->name('admin.index');
 
 Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
 Route::delete('/admin/articles/{article}', 'Admin\ArticlesController@destroy')->name('admin.articles.destroy');

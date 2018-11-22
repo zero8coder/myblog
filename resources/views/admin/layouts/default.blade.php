@@ -3,6 +3,7 @@
 <head>
     <title>@yield('title', '后台')</title>
     <link rel="stylesheet" href="/css/app.css">
+    @yield('styles')
 </head>
 <body>
     <div class="{{ route_class() }}-page">
@@ -14,5 +15,6 @@
         </div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>
