@@ -22,7 +22,7 @@
                     </form>
                 </td>
                 <td>{{ $article->category->name }}</td>
-                <td>{{ $article->title }}</td>
+                <td> <a href="{{ route('admin.articles.edit', $article->id)}}">{{ $article->title }}</a></td>
                 <td>{{ $article->created_at->toDateString() }}</td>
             </tr>
         @endforeach

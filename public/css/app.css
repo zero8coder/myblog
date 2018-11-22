@@ -8476,6 +8476,17 @@ body {
   background-color: #cccccc;
 }
 
+/* 后台文章列表页 */
+
+.admin-articles-index-page a {
+  color: #636b6f;
+}
+
+.admin-articles-index-page a:hover {
+  color: #fdbfcc;
+  text-decoration: none;
+}
+
 /*删除图片按钮*/
 
 .del-img-btn {
