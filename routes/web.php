@@ -16,3 +16,4 @@ Route::get('/admin/articles/{article}/edit', 'Admin\ArticlesController@edit')->n
 Route::get('/admin/articles/create', 'Admin\ArticlesController@create')->name('admin.articles.create');
 Route::post('/admin/articles', 'Admin\ArticlesController@store')->name('admin.articles.store');
 Route::patch('/admin/articles/{article}', 'Admin\ArticlesController@update')->name('admin.articles.update');
+Route::post('upload_image', 'Admin\ArticlesController@uploadImage')->name('articles.upload_image');

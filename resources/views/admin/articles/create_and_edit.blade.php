@@ -4,16 +4,18 @@
 <br>
 @include('admin.shared._messages')
 <br>
-<div class="col-md-offset-2 col-md-8">
+<div class="col-md-offset-1 col-md-10">
     <div class="panel panel-default">
         <div class="panel-body">
         @include('admin.shared._errors')
+
         @if ($article->id)
             <form action="{{ route('admin.articles.update', $article->id) }}" method="post"accept-charset="UTF-8">
                 <input type="hidden" name="_method" value="PATCH">
         @else
             <form action="{{ route('admin.articles.store') }}" method="post" accept-charset="UTF-8">
         @endif
+
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="title">标题：</label>
@@ -25,9 +27,11 @@
                         <option value="" hidden disabled selected>请选择分类</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}"
+
                                 @if($article->category_id == $category->id)
                                     selected = "selected"
                                 @endif>
+
                                 {{ $category->name }}
                             </option>
                         @endforeach
@@ -61,7 +65,16 @@
         $(document).ready(function(){
             var editor = new Simditor({
                 textarea: $('#editor'),
+                upload: {
+                    url: '{{ route('articles.upload_image') }}',
+                    params: { _token: '{{ csrf_token() }}'},
+                    fileKey: 'upload_file',
+                    connectionCount: 3,
+                    leaveConfirm: '文件上传中, 关闭此页面将取消上传。'
+                },
+                pasteImage: true,
             });
+
         });
     </script>
 @stop
