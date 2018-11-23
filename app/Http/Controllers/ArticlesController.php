@@ -10,25 +10,52 @@ class ArticlesController extends Controller
 {
     public function index(Category $category)
     {
-        $articles = Article::orderby('id', 'desc')->paginate(17);
+        $articles = Article::orderby('id', 'desc')
+                        ->whereHas('category', function ($query) {
+                            $query->where('is_show', 1);
+                        })->paginate(17);
         return view('articles.index', compact('articles', 'category'));
     }
 
-    public function show(Article $article)
+    public function show($id)
     {
+        $article = Article::with('category')->find($id);
+
         // 获取 “上一篇” 的 ID
-        $previousArticleID = Article::where('id', '<', $article->id)->max('id');
+        $previousArticleID = Article::whereHas('category', function ($query) {
+                                                $query->where('is_show', 1);
+                                              })
+                                    ->where('id', '<', $id)
+                                    ->max('id');
+
         // 同理，获取 “下一篇” 的 ID
-        $nextArticleId = Article::where('id', '>', $article->id)->min('id');
+        $nextArticleId = Article::whereHas('category', function ($query) {
+                                                $query->where('is_show', 1);
+                                              })
+                                    ->where('id', '>', $id)
+                                    ->min('id');
+
         return view('articles.show', compact('article', 'previousArticleID', 'nextArticleId'));
     }
 
-    public function showWithCategory(Category $category, Article $article)
+    public function showWithCategory(Category $category, $id)
     {
+        $article = Article::with('category')->find($id);
+
         // 获取 “上一篇” 的 ID
-        $previousArticleID = Article::where('id', '<', $article->id)->where('category_id', $category->id)->max('id');
+        $previousArticleID = Article::whereHas('category', function ($query) {
+                                                $query->where('is_show', 1);
+                                              })
+                                        ->where('id', '<', $article->id)
+                                        ->where('category_id', $category->id)
+                                        ->max('id');
         // 同理，获取 “下一篇” 的 ID
-        $nextArticleId = Article::where('id', '>', $article->id)->where('category_id', $category->id)->min('id');
+        $nextArticleId = Article::whereHas('category', function ($query) {
+                                                $query->where('is_show', 1);
+                                              })
+                                        ->where('id', '>', $article->id)
+                                        ->where('category_id', $category->id)
+                                        ->min('id');
 
         return view('articles.show', compact('article', 'previousArticleID', 'nextArticleId', 'category'));
     }

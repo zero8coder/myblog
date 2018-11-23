@@ -21,6 +21,23 @@
                     <input type="text" name="name" class="form-control" value="{{ old('name', $category->name) }}">
                 </div>
 
+                <div class="form-group">
+                    <label for="name">是否显示：</label>
+                    <select name="is_show"  class="form-control" required>
+                        <option value="2"
+                            @if($category->is_show == 2)
+                                selected = "selected"
+                            @endif
+                        >x</option>
+
+                        <option value="1"
+                            @if($category->is_show == 1)
+                                selected = "selected"
+                            @endif
+                        >√</option>
+                    </select>
+                </div>
+
                 <div class="well well-sm">
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 保存</button>
                 </div>

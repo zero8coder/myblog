@@ -8,10 +8,11 @@
 @stop
 
 @section('content')
+@if (count($articles))
     <div class="col-lg-9 col-md-9 page-list">
         <div class="panel panel-default">
             <div class="panel-body">
-                @if (count($articles))
+
                     <ul class="media-list">
 
                         @foreach ($articles as $article)
@@ -35,9 +36,7 @@
 
                     </ul>
 
-                @else
-                    <div class="empty-block">暂无数据 ~_~ </div>
-                @endif
+
             </div>
         </div>
         <div class="text-center">
@@ -45,4 +44,8 @@
         </div>
 
     </div>
+@else
+    <div class="empty-block">暂无数据 ~_~ </div>
+@endif
+
 @stop

@@ -22,7 +22,12 @@
                     </form>
                 </td>
                 <td>{{ $category->name }}</td>
-                <td>是</td>
+                @if ($category->is_show == 1)
+                    <td>√</td>
+                @elseif ($category->is_show == 2)
+                    <td>x</td>
+                @endif
+
             </tr>
         @endforeach
     </table>
