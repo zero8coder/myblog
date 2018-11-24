@@ -11,6 +11,10 @@ Route::post('/admin/login', 'Admin\SessionsController@store')->name('admin.login
 Route::get('/admin/index', 'Admin\ArticlesController@index')->name('admin.index');
 Route::get('/admin/', 'Admin\ArticlesController@index')->name('admin');
 
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/login', 'Admin\SessionsController@create')->name('login');
+});
+
 Route::resource('/admin/articles', 'Admin\ArticlesController', [ 'except' => 'show' ])
     ->names([
         'create'  => 'admin.articles.create',

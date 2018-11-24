@@ -8,9 +8,15 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Handlers\ImageUploadHandler;
+use Auth;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $articles = Article::orderby('id', 'desc')->with('category')->paginate(17);
