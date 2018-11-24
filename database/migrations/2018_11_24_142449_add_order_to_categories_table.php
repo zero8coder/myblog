@@ -14,7 +14,7 @@ class AddOrderToCategoriesTable extends Migration
     public function up()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->integer('order')->comment('排序');
+            $table->integer('order')->nullable()->comment('排序');
         });
     }
 
