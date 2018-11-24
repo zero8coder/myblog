@@ -56,6 +56,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="order">排序:</label>
+                    <input type="text" name="order" class="form-control" value="{{ old('order', $article->order) }}">
+                </div>
+
+                <div class="form-group">
                     <textarea name="body" class="form-control" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" required>{{ $article->body }}</textarea>
                 </div>
 

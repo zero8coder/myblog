@@ -10,7 +10,7 @@ class ArticlesController extends Controller
 {
     public function index(Category $category)
     {
-        $articles = Article::orderby('id', 'desc')
+        $articles = Article::orderby('order', 'desc')
                         ->whereHas('category', function ($query) {
                             $query->where('is_show', 1);
                         })
@@ -27,7 +27,7 @@ class ArticlesController extends Controller
         $previousArticleID = Article::whereHas('category', function ($query) {
                                                 $query->where('is_show', 1);
                                               })
-                                    ->where('id', '<', $id)
+                                    ->where('order', '<', $article->order)
                                     ->where('is_show', 1)
                                     ->max('id');
 
@@ -35,7 +35,7 @@ class ArticlesController extends Controller
         $nextArticleId = Article::whereHas('category', function ($query) {
                                                 $query->where('is_show', 1);
                                               })
-                                    ->where('id', '<', $id)
+                                    ->where('order', '>', $article->order)
                                     ->where('is_show', 1)
                                     ->min('id');
 
@@ -50,7 +50,7 @@ class ArticlesController extends Controller
         $previousArticleID = Article::whereHas('category', function ($query) {
                                                 $query->where('is_show', 1);
                                               })
-                                        ->where('id', '<', $article->id)
+                                        ->where('order', '<', $article->order)
                                         ->where('category_id', $category->id)
                                         ->where('is_show', 1)
                                         ->max('id');
@@ -58,7 +58,7 @@ class ArticlesController extends Controller
         $nextArticleId = Article::whereHas('category', function ($query) {
                                                 $query->where('is_show', 1);
                                               })
-                                        ->where('id', '>', $article->id)
+                                        ->where('order', '>', $article->order)
                                         ->where('category_id', $category->id)
                                         ->where('is_show', 1)
                                         ->min('id');

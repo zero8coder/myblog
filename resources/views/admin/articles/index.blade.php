@@ -6,7 +6,7 @@
 <br>
 <div class="panel panel-default">
     <table class="table">
-        <th>操作</th><th>分类</th><th>标题</th><th>是否显示</th><th>创建时间</th>
+        <th>操作</th><th>分类</th><th>标题</th><th>是否显示</th><th>排序</th><th>创建时间</th>
         @foreach ($articles as $article)
             <tr>
                 <td>
@@ -28,6 +28,7 @@
                 @elseif ($article->is_show == 2)
                     <td>x</td>
                 @endif
+                <td>{{ $article->order }}</td>
                 <td>{{ $article->created_at->toDateString() }}</td>
             </tr>
         @endforeach

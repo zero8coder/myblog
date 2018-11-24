@@ -22,6 +22,7 @@ class ArticlesTableSeeder extends Seeder
         {
             // 从分类 ID 数组中随机取出一个并赋值
             $article->category_id = $faker->randomElement($category_ids);
+            $article->order = $index;
         });
 
         Article::insert($articles->toArray());

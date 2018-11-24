@@ -13,7 +13,7 @@ class CategoriesController extends Controller
                                               })
                             ->where('category_id', $category->id)
                             ->where('is_show', 1)
-                            ->orderby('id', 'desc')
+                            ->orderby('order', 'desc')
                             ->paginate(17);
         return view('articles.index', compact('articles', 'category'));
     }

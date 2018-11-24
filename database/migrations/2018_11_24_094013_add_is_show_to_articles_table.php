@@ -26,7 +26,7 @@ class AddIsShowToArticlesTable extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->dropColum('is_show');
+            $table->dropColumn('is_show');
         });
     }
 }

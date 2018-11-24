@@ -26,7 +26,7 @@ class AddOrderToCategoriesTable extends Migration
     public function down()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->dropColum('order');
+            $table->dropColumn('order');
         });
     }
 }

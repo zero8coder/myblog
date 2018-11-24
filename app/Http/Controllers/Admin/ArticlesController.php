@@ -33,6 +33,9 @@ class ArticlesController extends Controller
     public function create(Article $article)
     {
         $categories = Category::all();
+        $maxOrder = Article::max('order');
+        $order = $maxOrder + 1;
+        $article->order = $order;
         return view('admin.articles.create_and_edit', compact('categories', 'article'));
     }
 

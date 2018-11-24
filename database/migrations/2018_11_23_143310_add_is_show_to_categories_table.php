@@ -27,7 +27,7 @@ class AddIsShowToCategoriesTable extends Migration
     public function down()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->dropColum('is_show');
+            $table->dropColumn('is_show');
         });
     }
 }
