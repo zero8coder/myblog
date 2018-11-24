@@ -9,6 +9,7 @@ Route::get('/categories/{category}', 'CategoriesController@index')->name('catego
 Route::get('/admin/login', 'Admin\SessionsController@create')->name('admin.login');
 Route::post('/admin/login', 'Admin\SessionsController@store')->name('admin.login');
 Route::get('/admin/index', 'Admin\ArticlesController@index')->name('admin.index');
+Route::get('/admin/', 'Admin\ArticlesController@index')->name('admin');
 
 Route::resource('/admin/articles', 'Admin\ArticlesController', [ 'except' => 'show' ])
     ->names([

@@ -13,7 +13,9 @@ class ArticlesController extends Controller
         $articles = Article::orderby('id', 'desc')
                         ->whereHas('category', function ($query) {
                             $query->where('is_show', 1);
-                        })->paginate(17);
+                        })
+                        ->where('is_show', 1)
+                        ->paginate(17);
         return view('articles.index', compact('articles', 'category'));
     }
 
@@ -26,13 +28,15 @@ class ArticlesController extends Controller
                                                 $query->where('is_show', 1);
                                               })
                                     ->where('id', '<', $id)
+                                    ->where('is_show', 1)
                                     ->max('id');
 
         // 同理，获取 “下一篇” 的 ID
         $nextArticleId = Article::whereHas('category', function ($query) {
                                                 $query->where('is_show', 1);
                                               })
-                                    ->where('id', '>', $id)
+                                    ->where('id', '<', $id)
+                                    ->where('is_show', 1)
                                     ->min('id');
 
         return view('articles.show', compact('article', 'previousArticleID', 'nextArticleId'));
@@ -48,6 +52,7 @@ class ArticlesController extends Controller
                                               })
                                         ->where('id', '<', $article->id)
                                         ->where('category_id', $category->id)
+                                        ->where('is_show', 1)
                                         ->max('id');
         // 同理，获取 “下一篇” 的 ID
         $nextArticleId = Article::whereHas('category', function ($query) {
@@ -55,6 +60,7 @@ class ArticlesController extends Controller
                                               })
                                         ->where('id', '>', $article->id)
                                         ->where('category_id', $category->id)
+                                        ->where('is_show', 1)
                                         ->min('id');
 
         return view('articles.show', compact('article', 'previousArticleID', 'nextArticleId', 'category'));

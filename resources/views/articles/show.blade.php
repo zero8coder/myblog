@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', $article->title)
 @section('content')
-    @if ($article->category->is_show == 1)
+    @if ($article->category->is_show == 1 && $article->is_show == 1)
         <div class="col-lg-9 col-md-9 article-content">
             <div class="panel panel-default">
                 <div class="panel-body">

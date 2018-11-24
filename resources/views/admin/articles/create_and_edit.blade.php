@@ -23,8 +23,8 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="title">分类：</label>
                     <select name="category_id"  class="form-control" required>
-                        <option value="" hidden disabled selected>请选择分类</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}"
 
@@ -35,6 +35,23 @@
                                 {{ $category->name }}
                             </option>
                         @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">是否显示：</label>
+                    <select name="is_show"  class="form-control" required>
+                        <option value="2"
+                            @if($article->is_show == 2)
+                                selected = "selected"
+                            @endif
+                        >x</option>
+
+                        <option value="1"
+                            @if($article->is_show == 1)
+                                selected = "selected"
+                            @endif
+                        >√</option>
                     </select>
                 </div>
 

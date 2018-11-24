@@ -12,7 +12,6 @@
     <div class="col-lg-9 col-md-9 page-list">
         <div class="panel panel-default">
             <div class="panel-body">
-
                     <ul class="media-list">
 
                         @foreach ($articles as $article)
@@ -35,10 +34,9 @@
                         @endforeach
 
                     </ul>
-
-
             </div>
         </div>
+
         <div class="text-center">
             {!! $articles->render() !!}
         </div>
