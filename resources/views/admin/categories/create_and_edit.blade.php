@@ -38,6 +38,11 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label for="order">排序:</label>
+                    <input type="text" name="order" class="form-control" value="{{ old('order', $category->order) }}">
+                </div>
+
                 <div class="well well-sm">
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 保存</button>
                 </div>

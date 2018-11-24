@@ -16,6 +16,9 @@ class CategoriesController extends Controller
 
     public function create(Category $category)
     {
+        $maxOrder = Category::max('order');
+        $order = $maxOrder + 1;
+        $category->order = $order;
         return view('admin.categories.create_and_edit', compact('category'));
     }
 

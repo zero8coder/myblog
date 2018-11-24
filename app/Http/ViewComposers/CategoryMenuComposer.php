@@ -9,7 +9,7 @@ class CategoryMenuComposer
 {
     public function compose(View $view)
     {
-        $categoryMenus = Category::where('is_show', 1)->get();
+        $categoryMenus = Category::where('is_show', 1)->orderby('order', 'asc')->get();
         $view->with(compact('categoryMenus'));
     }
 }

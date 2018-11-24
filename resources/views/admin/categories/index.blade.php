@@ -6,7 +6,7 @@
 <br>
 <div class="panel panel-default">
     <table class="table">
-        <th>操作</th><th>分类</th><th>是否展示</th>
+        <th>操作</th><th>分类</th><th>是否展示</th><th>排序</th>
         @foreach ($categories as $category)
             <tr>
                 <td>
@@ -21,12 +21,17 @@
                         <input name="" type="submit" class="del-img-btn"  value=''/>
                     </form>
                 </td>
+
                 <td>{{ $category->name }}</td>
+
                 @if ($category->is_show == 1)
                     <td>√</td>
                 @elseif ($category->is_show == 2)
                     <td>x</td>
                 @endif
+
+                <td>{{ $category->order }}</td>
+
 
             </tr>
         @endforeach
