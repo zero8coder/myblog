@@ -55,6 +55,16 @@ body {
         }
     }
 
+     li {
+            a {
+                color: #636b6f;
+                &:hover {
+                    color: #fdbfcc;
+                    text-decoration:none;
+                }
+            }
+        }
+
 }
 
 /* page */

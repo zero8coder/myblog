@@ -8393,6 +8393,15 @@ body {
   color: #555;
 }
 
+.pagination li a {
+  color: #636b6f;
+}
+
+.pagination li a:hover {
+  color: #fdbfcc;
+  text-decoration: none;
+}
+
 /* page */
 
 .root-page .page-list .panel-body,
