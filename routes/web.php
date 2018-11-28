@@ -8,7 +8,6 @@ Route::get('/categories/{category}', 'CategoriesController@index')->name('catego
 Route::group(['prefix' => 'admin'], function() {
 
     Route::get('login', 'Admin\SessionsController@create')->name('login');
-    Route::get('login', 'Admin\SessionsController@create')->name('admin.login');
     Route::post('login', 'Admin\SessionsController@store')->name('admin.login');
 
     Route::get('index', 'Admin\ArticlesController@index')->name('admin.index');

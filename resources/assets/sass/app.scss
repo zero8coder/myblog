@@ -113,7 +113,7 @@ body {
 }
 
 /* 后台登录页 */
-.admin-login-page {
+.admin-login-page, .login-page{
     .panel-default {
         margin: auto;
         margin-top: 200px;
@@ -156,7 +156,7 @@ body {
 }
 
 /* 后台文章列表页 */
-.admin-articles-index-page {
+.admin-articles-index-page, .admin-page, .admin-index-page{
     a {
         color: #636b6f;
         &:hover {

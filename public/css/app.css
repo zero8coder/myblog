@@ -8449,19 +8449,22 @@ body {
 
 /* 后台登录页 */
 
-.admin-login-page .panel-default {
+.admin-login-page .panel-default,
+.login-page .panel-default {
   margin: auto;
   margin-top: 200px;
   width: 330px;
   height: auto;
 }
 
-.admin-login-page .btn-primary {
+.admin-login-page .btn-primary,
+.login-page .btn-primary {
   background-color: #E7E7E7;
   border-color: #E7E7E7;
 }
 
-.admin-login-page .btn {
+.admin-login-page .btn,
+.login-page .btn {
   width: 130px;
 }
 
@@ -8478,11 +8481,15 @@ body {
 
 /* 后台文章列表页 */
 
-.admin-articles-index-page a {
+.admin-articles-index-page a,
+.admin-page a,
+.admin-index-page a {
   color: #636b6f;
 }
 
-.admin-articles-index-page a:hover {
+.admin-articles-index-page a:hover,
+.admin-page a:hover,
+.admin-index-page a:hover {
   color: #fdbfcc;
   text-decoration: none;
 }
