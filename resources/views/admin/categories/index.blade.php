@@ -14,11 +14,11 @@
                         <input name="" type="button" class="edit-img-btn" />
                     </a>
                     &nbsp;
-                    <form action="{{ route('admin.categories.destroy', $category->id) }}" method="post" style="display:inline">
+                    <form id="delForm" action="{{ route('admin.categories.destroy', $category->id) }}" method="post" style="display:inline">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <input name="" type="submit" class="del-img-btn"  value=''/>
+                        <input class="del-img-btn" data-toggle="modal" data-target="#delModel"/>
                     </form>
                 </td>
 
@@ -37,4 +37,42 @@
         @endforeach
     </table>
 </div>
+
+<!-- 删除分类模态框（Modal） -->
+<div class="modal fade" id="delModel" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="modalLabel">
+                    删除
+                </h4>
+            </div>
+            <div class="modal-body">
+                是否删除该分类
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="delCategory()">
+                    <span class="glyphicon glyphicon-ok" style="color:#66CD00"></span>
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" >
+                    <span class="glyphicon glyphicon-remove" style="color:red"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@stop
+
+@section('scripts')
+    <script>
+        function delCategory()
+        {
+            $('#delModel').modal('hide')
+            $('#delForm').submit();
+        }
+    </script>
 @stop
