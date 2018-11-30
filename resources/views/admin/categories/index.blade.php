@@ -25,9 +25,9 @@
                 <td>{{ $category->name }}</td>
 
                 @if ($category->is_show == 1)
-                    <td>√</td>
+                    <td><span class="glyphicon glyphicon-ok" style="color:#66CD00"></span></td>
                 @elseif ($category->is_show == 2)
-                    <td>x</td>
+                    <td><span class="glyphicon glyphicon-remove" style="color:red"></span></td>
                 @endif
 
                 <td>{{ $category->order }}</td>

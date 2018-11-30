@@ -24,9 +24,9 @@
                 <td>{{ $article->category->name }}</td>
                 <td> <a href="{{ route('admin.articles.edit', $article->id)}}">{{ $article->title }}</a></td>
                  @if ($article->is_show == 1)
-                    <td>√</td>
+                    <td><span class="glyphicon glyphicon-ok" style="color:#66CD00"></span></td>
                 @elseif ($article->is_show == 2)
-                    <td>x</td>
+                    <td><span class="glyphicon glyphicon-remove" style="color:red"></span></td>
                 @endif
                 <td>{{ $article->order }}</td>
                 <td>{{ $article->created_at->toDateString() }}</td>
