@@ -14,11 +14,11 @@
                         <input name="" type="button" class="edit-img-btn" />
                     </a>
                     &nbsp;
-                    <form id="delForm" action="{{ route('admin.categories.destroy', $category->id) }}" method="post" style="display:inline">
+                    <form id="delForm_{{ $category->id }}" action="{{ route('admin.categories.destroy', $category->id) }}" method="post" style="display:inline">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <input class="del-img-btn" data-toggle="modal" data-target="#delModel"/>
+                        <input class="del-img-btn" data-toggle="modal" data-target="#delModel" data-categoryid="{{$category->id}}"/>
                     </form>
                 </td>
 
@@ -54,7 +54,7 @@
                 是否删除该分类
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" onclick="delCategory()">
+                <button type="button" class="btn btn-default" id="delCategoryBtn">
                     <span class="glyphicon glyphicon-ok" style="color:#66CD00"></span>
                 </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" >
@@ -69,10 +69,17 @@
 
 @section('scripts')
     <script>
-        function delCategory()
-        {
-            $('#delModel').modal('hide')
-            $('#delForm').submit();
-        }
+        $(function() {
+            var categoryid;
+            $('#delModel').on('show.bs.modal', function (e) {
+                categoryid = $(e.relatedTarget).data("categoryid");
+            });
+
+            $('#delCategoryBtn').on('click', function () {
+                $('#delModel').modal('hide')
+                var form = '#delForm_' + categoryid;
+                $(form).submit();
+            });
+        });
     </script>
 @stop

@@ -14,11 +14,11 @@
                         <input name="" type="button" class="edit-img-btn" />
                     </a>
                     &nbsp;
-                    <form id="delForm" action="{{ route('admin.articles.destroy', $article->id) }}" method="post" style="display:inline">
+                    <form id="delForm_{{ $article->id }}" action="{{ route('admin.articles.destroy', $article->id) }}" method="post" style="display:inline">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <input class="del-img-btn" data-toggle="modal" data-target="#delModel"/>
+                        <input class="del-img-btn" data-toggle="modal" data-target="#delModel" data-articleid="{{$article->id}}"/>
                     </form>
                 </td>
                 <td>{{ $article->category->name }}</td>
@@ -55,7 +55,7 @@
                 是否删除该文章
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" onclick="delArticle()">
+                <button type="button" class="btn btn-default" id="delArticleBtn">
                     <span class="glyphicon glyphicon-ok" style="color:#66CD00"></span>
                 </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" >
@@ -69,12 +69,20 @@
 @stop
 
 @section('scripts')
+
     <script>
-        function delArticle()
-        {
-            $('#delModel').modal('hide')
-            $('#delForm').submit();
-        }
+        $(function() {
+            var articleid;
+            $('#delModel').on('show.bs.modal', function (e) {
+                articleid = $(e.relatedTarget).data("articleid");
+            });
+
+            $('#delArticleBtn').on('click', function () {
+                $('#delModel').modal('hide')
+                var form = '#delForm_' + articleid;
+                $(form).submit();
+            });
+        });
     </script>
 @stop
 
