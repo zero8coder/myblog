@@ -5,16 +5,16 @@ Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.sho
 Route::get('/categories/{category}/articles/{article}', 'ArticlesController@showWithCategory')->name('articles.showWithCategory');
 Route::get('/categories/{category}', 'CategoriesController@index')->name('categories.index');
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 
-    Route::get('login', 'Admin\SessionsController@create')->name('login');
-    Route::post('login', 'Admin\SessionsController@store')->name('admin.login');
+    Route::get('login', 'SessionsController@create')->name('login');
+    Route::post('login', 'SessionsController@store')->name('admin.login');
 
-    Route::get('index', 'Admin\ArticlesController@index')->name('admin.index');
-    Route::get('/', 'Admin\ArticlesController@index')->name('admin');
+    Route::get('index', 'ArticlesController@index')->name('admin.index');
+    Route::get('/', 'ArticlesController@index')->name('admin');
 
 
-    Route::resource('articles', 'Admin\ArticlesController', [ 'except' => 'show' ])
+    Route::resource('articles', 'ArticlesController', [ 'except' => 'show' ])
     ->names([
         'create'  => 'admin.articles.create',
         'index'   => 'admin.articles.index',
@@ -23,9 +23,9 @@ Route::group(['prefix' => 'admin'], function() {
         'store'   => 'admin.articles.store',
         'update'  => 'admin.articles.update',
     ]);
-    Route::post('upload_image', 'Admin\ArticlesController@uploadImage')->name('admin.articles.upload_image');
+    Route::post('upload_image', 'ArticlesController@uploadImage')->name('admin.articles.upload_image');
 
-    Route::resource('categories', 'Admin\CategoriesController', [ 'except' => 'show' ])
+    Route::resource('categories', 'CategoriesController', [ 'except' => 'show' ])
     ->names([
         'create'  => 'admin.categories.create',
         'index'   => 'admin.categories.index',
