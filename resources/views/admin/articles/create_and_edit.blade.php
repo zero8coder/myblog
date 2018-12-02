@@ -76,6 +76,8 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor-markdown.css') }}">
 @stop
 
 @section('scripts')
@@ -83,10 +85,15 @@
     <script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/marked/0.3.12/marked.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/to-markdown/3.1.1/to-markdown.js"></script>
+    <script type="text/javascript" src="{{ asset('js/simditor-markdown.js') }}"></script>
+
     <script>
         $(document).ready(function(){
             var editor = new Simditor({
                 textarea: $('#editor'),
+                toolbar: ['bold', 'italic', 'underline', 'color', '|', 'ol', 'ul', '|', 'markdown'],
                 upload: {
                     url: '{{ route('admin.articles.upload_image') }}',
                     params: { _token: '{{ csrf_token() }}'},
