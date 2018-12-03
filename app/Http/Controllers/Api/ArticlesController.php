@@ -41,4 +41,9 @@ class ArticlesController extends Controller
         $articles = $query->paginate(20);
         return $this->response->paginator($articles, new ArticleTransformer());
     }
+
+    public function show(Article $article)
+    {
+        return $this->response->item($article, new ArticleTransformer());
+    }
 }

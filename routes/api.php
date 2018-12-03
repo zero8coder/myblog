@@ -28,6 +28,10 @@ $api->version('v1', [
     $api->get('articles', 'ArticlesController@index')
         ->name('api.articles.index');
 
+    // 文章详情
+    $api->get('articles/{article}', 'ArticlesController@show')
+        ->name('api.articles.show');
+
     // 需要 token 验证的接口
     $api->group(['middleware' => 'api.auth'], function($api) {
 
