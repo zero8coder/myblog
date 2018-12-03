@@ -27,5 +27,12 @@ $api->version('v1', [
     // 需要 token 验证的接口
     $api->group(['middleware' => 'api.auth'], function($api) {
 
+        // 图片资源
+        $api->post('images', 'ImagesController@store')
+            ->name('api.images.store');
+
+        // 发布文章
+        $api->post('articles', 'ArticlesController@store')
+            ->name('api.articles.store');
     });
 });
