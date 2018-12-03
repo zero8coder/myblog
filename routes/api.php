@@ -38,5 +38,9 @@ $api->version('v1', [
         // 修改文章
         $api->patch('articles/{article}', 'ArticlesController@update')
             ->name('api.articles.update');
+
+        // 删除文章
+        $api->delete('articles/{article}', 'ArticlesController@destroy')
+            ->name('api.article.destroy');
     });
 });
