@@ -29,4 +29,16 @@ class ArticlesController extends Controller
         $article->delete();
         return $this->response->noContent();
     }
+
+    public function index(Request $request, Article $article)
+    {
+        $query = $article->query();
+
+        if ($categoryId = $request->category_id) {
+            $query->where('category_id', $categoryId);
+        }
+
+        $articles = $query->paginate(20);
+        return $this->response->paginator($articles, new ArticleTransformer());
+    }
 }

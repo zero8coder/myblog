@@ -7,6 +7,8 @@ use League\Fractal\TransformerAbstract;
 
 class ArticleTransformer extends TransformerAbstract
 {
+    protected $availableIncludes = ['category'];
+
     public function transform(Article $article)
     {
         return [
@@ -20,5 +22,10 @@ class ArticleTransformer extends TransformerAbstract
             'updated_at' => $article->updated_at->toDateTimeString(),
             'is_show' => $article->is_show,
         ];
+    }
+
+    public function includeCategory(Article $article)
+    {
+        return $this->item($article->category, new CategoryTransformer());
     }
 }

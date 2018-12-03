@@ -24,6 +24,10 @@ $api->version('v1', [
     $api->get('categories', 'CategoriesController@index')
         ->name('api.categories.index');
 
+    // 文章列表
+    $api->get('articles', 'ArticlesController@index')
+        ->name('api.articles.index');
+
     // 需要 token 验证的接口
     $api->group(['middleware' => 'api.auth'], function($api) {
 
