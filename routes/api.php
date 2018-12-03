@@ -6,7 +6,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
-    'middleware' => 'serializer:array'
+    'middleware' => ['serializer:array', 'bindings']
 ], function($api) {
     // 登录
     $api->post('authorizations', 'AuthorizationsController@store')
@@ -31,8 +31,12 @@ $api->version('v1', [
         $api->post('images', 'ImagesController@store')
             ->name('api.images.store');
 
-        // 发布文章
+        // 写文章
         $api->post('articles', 'ArticlesController@store')
             ->name('api.articles.store');
+
+        // 修改文章
+        $api->patch('articles/{article}', 'ArticlesController@update')
+            ->name('api.articles.update');
     });
 });

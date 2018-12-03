@@ -17,4 +17,10 @@ class ArticlesController extends Controller
         return $this->response->item($article, new ArticleTransformer())
             ->setStatusCode(201);
     }
+
+    public function update(ArticleRequest $request, Article $article)
+    {
+        $article->update($request->all());
+        return $this->response->item($article, new ArticleTransformer());
+    }
 }
