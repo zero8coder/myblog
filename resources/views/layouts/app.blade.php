@@ -4,7 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>@yield('title', 'myblog') - 忠</title>
+        <title>@yield('title', 'myblog') - 记录生活点滴</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
