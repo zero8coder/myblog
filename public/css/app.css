@@ -8436,6 +8436,13 @@ body {
   margin-bottom: 11px;
 }
 
+.root-page .page-list h5,
+.index-page .page-list h5,
+.categories-index-page .page-list h5 {
+  margin-top: 3px;
+  margin-bottom: 2px;
+}
+
 /* 内容页 */
 
 .article-content .article-time {
