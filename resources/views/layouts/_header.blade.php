@@ -1,11 +1,13 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                忠
-            </a>
+
 
             <ul class="nav navbar-nav">
+
+                <li>
+                    <a href="{{ url('/') }}">忠</a>
+                </li>
 
                 <li class="{{
                     active_class(
