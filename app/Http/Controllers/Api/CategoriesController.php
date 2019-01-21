@@ -10,6 +10,7 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        return $this->response->collection(Category::all(), new CategoryTransformer());
+        $categories = Category::orderby('order', 'asc')->where('is_show', 1)->get();
+        return $this->response->collection($categories, new CategoryTransformer());
     }
 }

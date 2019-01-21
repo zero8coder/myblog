@@ -13,6 +13,8 @@ class CategoryTransformer extends TransformerAbstract
             'id' => $category->id,
             'name' => $category->name,
             'description' => $category->description,
+            'is_show' => $category->is_show,
+            'order' => $category->order,
         ];
     }
 }
