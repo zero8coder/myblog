@@ -38,7 +38,12 @@ class ArticlesController extends Controller
             $query->where('category_id', $categoryId);
         }
 
-        $articles = $query->paginate(20);
+        $articles = $query->orderby('order', 'desc')
+                ->whereHas('category', function ($query) {
+                    $query->where('is_show', 1);
+                })
+                ->where('is_show', 1)
+                ->paginate(20);
         return $this->response->paginator($articles, new ArticleTransformer());
     }
 
