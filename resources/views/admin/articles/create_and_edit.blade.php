@@ -93,7 +93,7 @@
         $(document).ready(function(){
             var editor = new Simditor({
                 textarea: $('#editor'),
-                toolbar: ['bold', 'italic', 'underline', 'color', '|', 'ol', 'ul', '|', 'markdown'],
+                toolbar: ['bold', 'italic', 'underline', 'color', 'image', '|', 'ol', 'ul', '|', 'markdown'],
                 upload: {
                     url: '{{ route('admin.articles.upload_image') }}',
                     params: { _token: '{{ csrf_token() }}'},
