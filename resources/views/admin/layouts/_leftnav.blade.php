@@ -13,6 +13,9 @@
             <li>
                 <a href="{{ route("admin.articles.index") }}">文章管理</a>
             </li>
+            <li>
+                <a href="{{ route("admin.password.edit") }}">修改密码</a>
+            </li>
 
         </ul>
     </div>

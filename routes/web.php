@@ -34,11 +34,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
         'store'   => 'admin.categories.store',
         'update'  => 'admin.categories.update',
     ]);
+
+    Route::get('password', 'PasswordController@edit')->name('admin.password.edit');
+    Route::post('password', 'PasswordController@update')->name('admin.password.update');
 });
-
-
-
-
-
-
-
