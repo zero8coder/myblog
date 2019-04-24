@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="{{ route_class() }}-page">
+        @include('admin.layouts._header')
         @include('admin.layouts._leftnav')
         <div class="container">
             <div class="col-md-offset-1 col-md-10">
