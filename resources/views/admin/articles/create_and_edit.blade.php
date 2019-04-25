@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea name="body" class="form-control" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" required>{{ $article->body }}</textarea>
+                    <textarea name="body" class="form-control" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" ></textarea>
                 </div>
 
                 <div class="well well-sm">
@@ -75,35 +75,20 @@
 @stop
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor-markdown.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+
 @stop
 
 @section('scripts')
     <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
-    <script type="text/javascript" src="https://cdn.bootcss.com/marked/0.3.12/marked.js"></script>
-    <script type="text/javascript" src="https://cdn.bootcss.com/to-markdown/3.1.1/to-markdown.js"></script>
-    <script type="text/javascript" src="{{ asset('js/simditor-markdown.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
 
     <script>
-        $(document).ready(function(){
-            var editor = new Simditor({
-                textarea: $('#editor'),
-                toolbar: ['bold', 'italic', 'underline', 'color', 'image', '|', 'ol', 'ul', '|', 'markdown'],
-                upload: {
-                    url: '{{ route('admin.articles.upload_image') }}',
-                    params: { _token: '{{ csrf_token() }}'},
-                    fileKey: 'upload_file',
-                    connectionCount: 3,
-                    leaveConfirm: '文件上传中, 关闭此页面将取消上传。'
-                },
-                pasteImage: true,
-            });
-
-        });
+        var simplemde = new SimpleMDE({ element: document.getElementById("editor") });
+        simplemde.value("{{$article->body}}");
     </script>
 @stop
