@@ -11,8 +11,8 @@
                     <p class="article-time">日期：{{ $article->created_at->toDateString() }}</p>
                     <hr>
 
-                    <div class="article-body">
-                         {!! $article->body !!}
+                    <div class="article-body" id="content">
+
                     </div>
                 </div>
             </div>
@@ -48,4 +48,14 @@
         无数据
     @endif
 
+@stop
+
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
+    <script>
+        document.getElementById('content').innerHTML =
+        marked("{!! $article->body !!}");
+    </script>
 @stop

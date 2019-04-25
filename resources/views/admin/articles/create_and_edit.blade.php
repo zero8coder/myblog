@@ -89,6 +89,9 @@
 
     <script>
         var simplemde = new SimpleMDE({ element: document.getElementById("editor") });
-        simplemde.value("{{$article->body}}");
+        var content = "{{$article->body}}";
+        var val = simplemde.value(content);
+        var html = simplemde.markdown(val);
+        console.log(html)
     </script>
 @stop
