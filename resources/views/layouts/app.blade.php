@@ -8,6 +8,7 @@
         <meta name="keyword" contet="记录生活点滴,忠,laravel博客,php博客,技术博客,个人博客">
         <title>@yield('title', 'myblog') - 记录生活点滴</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @yield('styles')
     </head>
     <body>
         <div id="app" class="{{ route_class() }}-page">

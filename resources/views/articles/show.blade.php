@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('title', $article->title)
+
+@section('styles')
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/a11y-dark.min.css" rel="stylesheet">
+@stop
+
 @section('content')
     @if ($article->category->is_show == 1 && $article->is_show == 1)
         <div class="col-lg-9 col-md-9 article-content">
@@ -12,7 +17,7 @@
                     <hr>
 
                     <div class="article-body" id="content">
-
+                        {!! Parsedown::instance()->setMarkupEscaped(true)->text($article->body) !!}
                     </div>
                 </div>
             </div>
@@ -51,11 +56,6 @@
 @stop
 
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-
-    <script>
-        document.getElementById('content').innerHTML =
-        marked("{!! $article->body !!}");
-    </script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 @stop
