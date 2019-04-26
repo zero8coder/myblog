@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea name="body" class="form-control" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" ></textarea>
+                    <textarea name="body" class="form-control" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" >{{$article->body}}</textarea>
                 </div>
 
                 <div class="well well-sm">
@@ -86,49 +86,11 @@
     <script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
-<script>
-var simplemde = new SimpleMDE({
-            element: $("#editor")[0],
-            autofocus: true,
-            autosave: {
-                enabled: true,
-                uniqueId: "#editor",
-                delay: 1000,
-            },
-            blockStyles: {
-                bold: "__",
-                italic: "_"
-            },
-            forceSync: true,
-            hideIcons: ["guide", "heading"],
-            indentWithTabs: false,
-            insertTexts: {
-                horizontalRule: ["", "\n\n-----\n\n"],
-                image: ["![](http://", ")"],
-                link: ["[", "](http://)"],
-                table: ["", "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"],
-            },
-            parsingConfig: {
-                allowAtxHeaderWithoutSpace: true,
-                strikethrough: false,
-                underscoresBreakWords: true,
-            },
-            placeholder: "下笔如有神",
-            // 在编辑页面生成预览
-            previewRender: function(plainText, preview) { // Returns HTML from a custom parser, Async method
-                setTimeout(function(){
-                    preview.innerHTML = marked(plainText);
-                }, 250);
-                return "预览生成中......";
-            },
-            // 用 highlight.js 使代码高亮, 仅预览时生效
-            renderingConfig: {
-                codeSyntaxHighlighting: true,
-            },
-        });
-</script>
+    <script>
+        var simplemde = new SimpleMDE({element: $("#editor")[0]});
+    </script>
 @stop
