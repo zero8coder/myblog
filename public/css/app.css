@@ -8454,6 +8454,14 @@ body {
   margin-top: 0px;
 }
 
+.article-content pre {
+  margin: 0 0 15px -15px;
+  width: calc(100% + 30px);
+  padding: 0px;
+  border: 0px;
+  border-radius: 0px;
+}
+
 .article-content .article-page .pager li a {
   border-radius: 9px;
   color: #636b6f;
