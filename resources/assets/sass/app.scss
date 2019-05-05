@@ -131,8 +131,33 @@ body {
                     }
                 }
             }
+        }
+    }
+}
+
+// 文章目录
+.article-affix {
+    ul {
+        background: #fff;
+        padding: 5px;
+        border-radius: 4px;
+        border: 1px solid #d3e0e9;
+        width: 200px;
+    }
+    .active {
+        background: #eaeaea;
+        border-radius: 4px;
+    }
+
+    li {
 
 
+        a {
+            border-radius: 4px;
+            color: #636b6f;
+            &:hover {
+                text-decoration:none;
+            }
         }
     }
 }

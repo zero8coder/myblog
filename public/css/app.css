@@ -8472,6 +8472,28 @@ body {
   text-decoration: none;
 }
 
+.article-affix ul {
+  background: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #d3e0e9;
+  width: 200px;
+}
+
+.article-affix .active {
+  background: #eaeaea;
+  border-radius: 4px;
+}
+
+.article-affix li a {
+  border-radius: 4px;
+  color: #636b6f;
+}
+
+.article-affix li a:hover {
+  text-decoration: none;
+}
+
 /* 后台登录页 */
 
 .admin-login-page .panel-default,
