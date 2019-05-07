@@ -66,26 +66,28 @@
     <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
+        //文章侧栏导航栏
         var toc = $("#toc")
         $(document).ready(function(){
-           $("#content > h2, #content > h3").each(function(i,item){
-
+            $("#content > h2, #content > h3").each(function(i,item){
                 var num = i + 1;
                 $(item).attr("id", "header_" + num);
-               var tagName = $(item).prop("tagName");
-
-               if (i == 0) {
+                var tagName = $(item).prop("tagName");
+                if (i == 0) {
+                   // 默认选择第一个
                    toc.append('<li class="active"><a href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
                 } else {
                     if  (tagName == "H3") {
+                        //  增加下级样式
                         toc.append('<li><a class="subordinate" href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
                     } else {
                         toc.append('<li><a href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
                     }
                 }
 
-           })
+            })
 
+            // 选中
             $('ul li').click(function(){
                 $(this).addClass('active').siblings().removeClass('active');
             })

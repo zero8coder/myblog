@@ -8450,8 +8450,44 @@ body {
   text-align: right;
 }
 
+.article-content .panel-body {
+  padding: 15px 34px 15px 34px;
+}
+
 .article-content .panel-body hr {
   margin-top: 0px;
+}
+
+.article-content h2 {
+  padding-bottom: .3em;
+  font-size: 1.4em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+  margin: 35px 0;
+  font-weight: 700;
+}
+
+.article-content h3 {
+  font-size: 1.2em;
+  line-height: 1.43;
+  font-weight: 700;
+}
+
+.article-content p {
+  display: block;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+  margin: 0 0 1em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 30px;
+  font-size: 15px;
 }
 
 .article-content pre {
@@ -8460,6 +8496,18 @@ body {
   padding: 0px;
   border: 0px;
   border-radius: 0px;
+}
+
+.article-content blockquote {
+  display: block;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+  -webkit-margin-start: 40px;
+          margin-inline-start: 40px;
+  -webkit-margin-end: 40px;
+          margin-inline-end: 40px;
 }
 
 .article-content .article-page .pager li a {
