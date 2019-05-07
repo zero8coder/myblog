@@ -68,16 +68,20 @@
     <script type="text/javascript">
         var toc = $("#toc")
         $(document).ready(function(){
-           $("#content > h2").each(function(i,item){
-                console.log(i)
-                console.log(item)
+           $("#content > h2, #content > h3").each(function(i,item){
+
                 var num = i + 1;
                 $(item).attr("id", "header_" + num);
+               var tagName = $(item).prop("tagName");
 
-                if (i == 0) {
+               if (i == 0) {
                    toc.append('<li class="active"><a href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
                 } else {
-                    toc.append('<li><a href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
+                    if  (tagName == "H3") {
+                        toc.append('<li><a class="subordinate" href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
+                    } else {
+                        toc.append('<li><a href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
+                    }
                 }
 
            })

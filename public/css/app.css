@@ -8485,6 +8485,10 @@ body {
   border-radius: 4px;
 }
 
+.article-affix .subordinate {
+  padding: 10px 15px 10px 30px;
+}
+
 .article-affix li a {
   border-radius: 4px;
   color: #636b6f;
