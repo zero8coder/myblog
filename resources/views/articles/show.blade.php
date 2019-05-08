@@ -18,7 +18,7 @@
                     <hr>
 
                     <div class="article-body" id="content">
-                        {!! Parsedown::instance()->setMarkupEscaped(true)->text($article->body) !!}
+                        {!! Parsedown::instance()->text($article->body) !!}
                     </div>
                 </div>
             </div>

@@ -8352,6 +8352,7 @@ button.close {
 
 body {
   padding-bottom: 26px;
+  font-family: Helvetica Neue,NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,sans-serif;
 }
 
 /* header */
@@ -8456,6 +8457,8 @@ body {
 
 .article-content .panel-body hr {
   margin-top: 0px;
+  border-top: 1px solid #d3e0e9;
+  border-bottom: 1px solid rgba(211, 224, 233, 0.15);
 }
 
 .article-content h2 {
@@ -8499,15 +8502,15 @@ body {
 }
 
 .article-content blockquote {
-  display: block;
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
-  -webkit-margin-after: 1em;
-          margin-block-end: 1em;
-  -webkit-margin-start: 40px;
-          margin-inline-start: 40px;
-  -webkit-margin-end: 40px;
-          margin-inline-end: 40px;
+  margin: 20px 0 !important;
+  background-color: #f5f8fc;
+  padding: 1rem;
+  color: #8796a8;
+  border-left: none;
+}
+
+.article-content img {
+  max-width: 100%;
 }
 
 .article-content .article-page .pager li a {

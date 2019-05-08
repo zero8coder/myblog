@@ -10,6 +10,7 @@
 
 body {
     padding-bottom: 26px;
+    font-family: Helvetica Neue,NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,sans-serif;
 }
 
 /* header */
@@ -108,6 +109,8 @@ body {
     .panel-body {
         hr {
             margin-top: 0px;
+            border-top: 1px solid #d3e0e9;
+            border-bottom: 1px solid rgba(211,224,233,.15);
         }
 
         padding: 15px 34px 15px 34px;
@@ -153,11 +156,15 @@ body {
     }
 
     blockquote {
-        display: block;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 40px;
-        margin-inline-end: 40px;
+        margin: 20px 0!important;
+        background-color: #f5f8fc;
+        padding: 1rem;
+        color: #8796a8;
+        border-left: none;
+    }
+
+    img {
+       max-width: 100%
     }
 
     .article-page {
