@@ -8452,7 +8452,9 @@ body {
 }
 
 .article-content .panel-body {
+  color: #636b6f;
   padding: 15px 34px 15px 34px;
+  font-size: 15px;
 }
 
 .article-content .panel-body hr {
@@ -8461,22 +8463,7 @@ body {
   border-bottom: 1px solid rgba(211, 224, 233, 0.15);
 }
 
-.article-content h2 {
-  padding-bottom: .3em;
-  font-size: 1.4em;
-  line-height: 1.225;
-  border-bottom: 1px solid #eee;
-  margin: 35px 0;
-  font-weight: 700;
-}
-
-.article-content h3 {
-  font-size: 1.2em;
-  line-height: 1.43;
-  font-weight: 700;
-}
-
-.article-content p {
+.article-content .panel-body p {
   display: block;
   -webkit-margin-before: 1em;
           margin-block-start: 1em;
@@ -8493,7 +8480,22 @@ body {
   font-size: 15px;
 }
 
-.article-content pre {
+.article-content .panel-body h2 {
+  padding-bottom: .3em;
+  font-size: 1.4em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+  margin: 20px 0;
+  font-weight: 700;
+}
+
+.article-content .panel-body h3 {
+  font-size: 1.2em;
+  line-height: 1.43;
+  font-weight: 700;
+}
+
+.article-content .panel-body pre {
   margin: 0 0 15px -15px;
   width: calc(100% + 30px);
   padding: 0px;
@@ -8501,7 +8503,7 @@ body {
   border-radius: 0px;
 }
 
-.article-content blockquote {
+.article-content .panel-body blockquote {
   margin: 20px 0 !important;
   background-color: #f5f8fc;
   padding: 1rem;
@@ -8509,7 +8511,49 @@ body {
   border-left: none;
 }
 
-.article-content img {
+.article-content .panel-body blockquote p {
+  margin: 0;
+}
+
+.article-content .panel-body table {
+  width: 100%;
+  overflow: auto;
+  margin: 25px 0;
+}
+
+.article-content .panel-body thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.article-content .panel-body tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.article-content .panel-body table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.article-content .panel-body table tr:nth-child(even) {
+  background-color: #F5F5F5;
+}
+
+.article-content .panel-body td,
+.article-content .panel-body th {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.article-content .panel-body td,
+.article-content .panel-body th {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+.article-content .panel-body img {
   max-width: 100%;
 }
 
