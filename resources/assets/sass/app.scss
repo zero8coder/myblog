@@ -193,12 +193,13 @@ body {
         td,th {
             padding: 6px 13px;
             border: 1px solid #ddd;
-        }
-
-        td, th {
             display: table-cell;
             vertical-align: inherit;
+            font-size: 14px;
+            line-height: 30px;
+            text-align: left
         }
+
 
         img {
             max-width: 100%
@@ -245,11 +246,10 @@ body {
     }
 
     li {
-
-
         a {
             border-radius: 4px;
             color: #636b6f;
+            font-size: 13px;
             &:hover {
                 text-decoration:none;
             }
