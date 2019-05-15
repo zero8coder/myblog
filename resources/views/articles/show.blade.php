@@ -66,7 +66,7 @@
     <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
-        //文章侧栏导航栏
+        // 文章侧栏导航栏
         var toc = $("#toc")
         $(document).ready(function(){
             $("#content > h2, #content > h3").each(function(i,item){

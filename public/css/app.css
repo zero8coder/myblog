@@ -8565,6 +8565,8 @@ body {
 
 .article-content .panel-body img {
   max-width: 100%;
+  margin: 0 auto;
+  display: block;
 }
 
 .article-content .article-page .pager li a {
