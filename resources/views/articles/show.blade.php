@@ -57,13 +57,13 @@
             </ul>
         </div>
 
-        <div class="modal fade" id="myModal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <img src="" alt="" id="pic" >
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
+        <!--遮罩层-->
+        <div class="mask-layer" ></div>
+        <!--放大图片-->
+        <div class="large-pic" >
+            <img id="pic" src="">
         </div>
+
     @else
         无数据
     @endif
@@ -104,8 +104,19 @@
         // 图片点击放大
         $(".article-body > img").click(function(){
             $("#pic").attr('src', $(this).attr('src'));
-            $('#myModal').modal('show')
+            $(".mask-layer").show()
+            $(".large-pic").show()
         });
+
+        // 遮罩层隐藏 图片隐藏
+        $(".mask-layer,.large-pic").click(function (){
+            $(".mask-layer").hide()
+            $(".large-pic").hide()
+        })
+
+
+
+
 
     </script>
 
