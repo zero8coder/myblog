@@ -14,7 +14,7 @@
                     <h1 class="text-center">
                         {{ $article->title }}
                     </h1>
-                    <p class="article-time">日期：{{ $article->created_at->toDateString() }}</p>
+                    <p class="article-time">{{ $article->created_at->toDateString() }}</p>
                     <hr>
 
                     <div class="article-body" id="content">
@@ -82,8 +82,15 @@
                 $(item).attr("id", "header_" + num);
                 var tagName = $(item).prop("tagName");
                 if (i == 0) {
+                    // 显示文章侧栏导航栏
+                    $(".article-affix").show();
                    // 默认选择第一个
-                   toc.append('<li class="active"><a href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
+                    if  (tagName == "H3") {
+                        //  增加下级样式
+                        toc.append('<li class="active"><a class="subordinate" href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
+                    } else {
+                        toc.append('<li class="active"><a href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
+                    }
                 } else {
                     if  (tagName == "H3") {
                         //  增加下级样式
