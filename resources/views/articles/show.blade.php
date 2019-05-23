@@ -77,7 +77,10 @@
         // 文章侧栏导航栏
         var toc = $("#toc")
         $(document).ready(function(){
+            var h2_length = $("#content > h2").length;
+            console.log(h2_length)
             $("#content > h2, #content > h3").each(function(i,item){
+                // 添加 id 导航
                 var num = i + 1;
                 $(item).attr("id", "header_" + num);
                 var tagName = $(item).prop("tagName");
@@ -85,14 +88,14 @@
                     // 显示文章侧栏导航栏
                     $(".article-affix").show();
                    // 默认选择第一个
-                    if  (tagName == "H3") {
+                    if  (tagName == "H3" && h2_length != 0) {
                         //  增加下级样式
                         toc.append('<li class="active"><a class="subordinate" href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
                     } else {
                         toc.append('<li class="active"><a href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
                     }
                 } else {
-                    if  (tagName == "H3") {
+                    if  (tagName == "H3" && h2_length != 0) {
                         //  增加下级样式
                         toc.append('<li><a class="subordinate" href="#header_'+num+'">' + $("#header_" + num).text() + '</a></li>');
                     } else {
