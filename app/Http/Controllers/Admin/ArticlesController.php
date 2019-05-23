@@ -64,15 +64,15 @@ class ArticlesController extends Controller
         $data = [
             'success'   => false,
             'msg'       => '上传失败',
-            'file_path' => ''
+            'filename' => ''
         ];
         // 判断是否有上传文件，并赋值给 $file
-        if ($file = $request->upload_file) {
+        if ($file = $request->image) {
             // 保存图片到本地
-            $result = $uploader->save($request->upload_file, 'articles', 1, 1024);
+            $result = $uploader->save($request->image, 'articles', 1, 1024);
             // 图片保存成功的话
             if ($result) {
-                $data['file_path'] = $result['path'];
+                $data['filename'] = $result['path'];
                 $data['msg']       = "上传成功！";
                 $data['success']   = true;
             }

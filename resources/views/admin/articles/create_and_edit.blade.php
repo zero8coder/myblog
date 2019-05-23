@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea name="body" class="form-control" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" >{{$article->body}}</textarea>
+                    <textarea name="body" class="form-control" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" >{{old('body', $article->body)}}</textarea>
                 </div>
 
                 <div class="well well-sm">
@@ -89,8 +89,36 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script src="{{ asset('js/inline-attachment.js') }}"></script>
+    <script src="{{ asset('js/codemirror-4.inline-attachment.js') }}"></script>
 
     <script>
         var simplemde = new SimpleMDE({element: $("#editor")[0]});
+
+        inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {
+            uploadUrl: '{{ route("admin.articles.upload_image") }}',
+            uploadFieldName: "image",
+            //urlText: "\n ![file]({filename})\n\n",
+            extraParams: {
+                '_token': '{{ csrf_token() }}',
+            },
+            onFileUploadResponse: function (xhr) {
+                var result = JSON.parse(xhr.responseText),
+                    filename = result[this.settings.jsonFieldName];
+
+                if (result && filename) {
+                    var newValue;
+                    if (typeof this.settings.urlText === 'function') {
+                        newValue = this.settings.urlText.call(this, filename, result);
+                    } else {
+                        newValue = this.settings.urlText.replace(this.filenameTag, filename);
+                    }
+                    var text = this.editor.getValue().replace(this.lastValue, newValue);
+                    this.editor.setValue(text);
+                    this.settings.onFileUploaded.call(this, filename);
+                }
+                return false;
+            }
+        });
     </script>
 @stop
