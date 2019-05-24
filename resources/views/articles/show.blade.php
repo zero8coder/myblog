@@ -112,7 +112,8 @@
         });
 
         // 图片点击放大
-        $(".article-body > img").click(function(){
+        $(".article-body > img, .article-body > p >img").click(function(){
+            console.log(11111);
             $("#pic").attr('src', $(this).attr('src'));
             $(".mask-layer").show()
             $(".large-pic").show()
