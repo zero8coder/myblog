@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
-use App\Handlers\ImageUploadHandler;
+use Illuminate\Support\Facades\Storage;
 use Auth;
 
 class ArticlesController extends Controller
@@ -58,7 +58,7 @@ class ArticlesController extends Controller
         return redirect()->route('admin.articles.index')->with('success', '修改成功');
     }
 
-    public function uploadImage(Request $request, ImageUploadHandler $uploader)
+    public function uploadImage(Request $request)
     {
         // 初始化返回数据，默认是失败
         $data = [
@@ -69,10 +69,16 @@ class ArticlesController extends Controller
         // 判断是否有上传文件，并赋值给 $file
         if ($file = $request->image) {
             // 保存图片到本地
-            $result = $uploader->save($request->image, 'articles', 1, 1024);
+            $folder_name = "articles/" . date('Ym/d', time());
+            $disk = Storage::disk('oss');
+            $result=$disk->put($folder_name, $request->image);
             // 图片保存成功的话
             if ($result) {
-                $data['filename'] = $result['path'];
+                $bucket = config("filesystems")["disks"]["oss"]["bucket"];
+                $endPoint = config("filesystems")["disks"]["oss"]["endpoint"];
+                $remotePath = 'https://'.$bucket.'.'.$endPoint.'/'.$result;
+
+                $data['filename'] = $remotePath;
                 $data['msg']       = "上传成功！";
                 $data['success']   = true;
             }
