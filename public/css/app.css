@@ -8692,6 +8692,183 @@ body {
   text-decoration: none;
 }
 
+/* 后台文章编辑页 */
+
+.admin-articles-edit-page .editor-preview-side,
+.admin-articles-edit-page .editor-preview-active-side,
+.admin-articles-edit-page .editor-preview,
+.admin-articles-edit-page .editor-preview-active {
+  background: #fff;
+  color: #636b6f;
+  padding: 15px 34px 15px 34px;
+  font-size: 15px;
+}
+
+.admin-articles-edit-page .editor-preview-side hr,
+.admin-articles-edit-page .editor-preview-active-side hr,
+.admin-articles-edit-page .editor-preview hr,
+.admin-articles-edit-page .editor-preview-active hr {
+  margin-top: 0px;
+  border-top: 1px solid #d3e0e9;
+  border-bottom: 1px solid rgba(211, 224, 233, 0.15);
+}
+
+.admin-articles-edit-page .editor-preview-side p,
+.admin-articles-edit-page .editor-preview-active-side p,
+.admin-articles-edit-page .editor-preview p,
+.admin-articles-edit-page .editor-preview-active p {
+  display: block;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+  margin: 0 0 1em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 30px;
+  font-size: 15px;
+}
+
+.admin-articles-edit-page .editor-preview-side h2,
+.admin-articles-edit-page .editor-preview-active-side h2,
+.admin-articles-edit-page .editor-preview h2,
+.admin-articles-edit-page .editor-preview-active h2 {
+  padding-bottom: .3em;
+  font-size: 1.4em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+  margin: 20px 0;
+  font-weight: 700;
+}
+
+.admin-articles-edit-page .editor-preview-side h3,
+.admin-articles-edit-page .editor-preview-active-side h3,
+.admin-articles-edit-page .editor-preview h3,
+.admin-articles-edit-page .editor-preview-active h3 {
+  font-size: 1.2em;
+  line-height: 1.43;
+  font-weight: 700;
+}
+
+.admin-articles-edit-page .editor-preview-side pre,
+.admin-articles-edit-page .editor-preview-active-side pre,
+.admin-articles-edit-page .editor-preview pre,
+.admin-articles-edit-page .editor-preview-active pre {
+  margin: 1.5em -35px;
+  border-radius: 0;
+  padding: 1.5em 35px;
+  background: #384548;
+}
+
+.admin-articles-edit-page .editor-preview-side pre code,
+.admin-articles-edit-page .editor-preview-active-side pre code,
+.admin-articles-edit-page .editor-preview pre code,
+.admin-articles-edit-page .editor-preview-active pre code {
+  background: transparent;
+  display: block;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: 24px;
+  font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+  font-size: 15px;
+  border: 0;
+}
+
+.admin-articles-edit-page .editor-preview-side blockquote,
+.admin-articles-edit-page .editor-preview-active-side blockquote,
+.admin-articles-edit-page .editor-preview blockquote,
+.admin-articles-edit-page .editor-preview-active blockquote {
+  margin: 20px 0 !important;
+  background-color: #f5f8fc;
+  padding: 1rem;
+  color: #8796a8;
+  border-left: none;
+}
+
+.admin-articles-edit-page .editor-preview-side blockquote p,
+.admin-articles-edit-page .editor-preview-active-side blockquote p,
+.admin-articles-edit-page .editor-preview blockquote p,
+.admin-articles-edit-page .editor-preview-active blockquote p {
+  margin: 0;
+}
+
+.admin-articles-edit-page .editor-preview-side table,
+.admin-articles-edit-page .editor-preview-active-side table,
+.admin-articles-edit-page .editor-preview table,
+.admin-articles-edit-page .editor-preview-active table {
+  width: 100%;
+  overflow: auto;
+  margin: 25px 0;
+}
+
+.admin-articles-edit-page .editor-preview-side thead,
+.admin-articles-edit-page .editor-preview-active-side thead,
+.admin-articles-edit-page .editor-preview thead,
+.admin-articles-edit-page .editor-preview-active thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.admin-articles-edit-page .editor-preview-side tr,
+.admin-articles-edit-page .editor-preview-active-side tr,
+.admin-articles-edit-page .editor-preview tr,
+.admin-articles-edit-page .editor-preview-active tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.admin-articles-edit-page .editor-preview-side table tr:nth-child(odd),
+.admin-articles-edit-page .editor-preview-active-side table tr:nth-child(odd),
+.admin-articles-edit-page .editor-preview table tr:nth-child(odd),
+.admin-articles-edit-page .editor-preview-active table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.admin-articles-edit-page .editor-preview-side table tr:nth-child(even),
+.admin-articles-edit-page .editor-preview-active-side table tr:nth-child(even),
+.admin-articles-edit-page .editor-preview table tr:nth-child(even),
+.admin-articles-edit-page .editor-preview-active table tr:nth-child(even) {
+  background-color: #F5F5F5;
+}
+
+.admin-articles-edit-page .editor-preview-side td,
+.admin-articles-edit-page .editor-preview-side th,
+.admin-articles-edit-page .editor-preview-active-side td,
+.admin-articles-edit-page .editor-preview-active-side th,
+.admin-articles-edit-page .editor-preview td,
+.admin-articles-edit-page .editor-preview th,
+.admin-articles-edit-page .editor-preview-active td,
+.admin-articles-edit-page .editor-preview-active th {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+  display: table-cell;
+  vertical-align: inherit;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: left;
+}
+
+.admin-articles-edit-page .editor-preview-side img,
+.admin-articles-edit-page .editor-preview-active-side img,
+.admin-articles-edit-page .editor-preview img,
+.admin-articles-edit-page .editor-preview-active img {
+  max-width: 100%;
+  margin: 10px auto 30px auto;
+  display: block;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0 0 30px #ccc;
+          box-shadow: 0 0 30px #ccc;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+
 /*删除图片按钮*/
 
 .del-img-btn {
