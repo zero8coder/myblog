@@ -17,4 +17,9 @@ class Article extends Model
     {
         return $this->hasMany(Reply::class);
     }
+
+    public function path()
+    {
+        return '/articles/' . $this->id;
+    }
 }

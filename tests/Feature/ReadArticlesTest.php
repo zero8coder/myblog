@@ -24,7 +24,7 @@ class ReadArticlesTest extends TestCase
     /** @test */
     public function a_tourist_can_view_a_single_article()
     {
-        $this->get('/articles/' . $this->article->id)
+        $this->get($this->article->path())
             ->assertSee($this->article->title);
     }
 
@@ -42,7 +42,7 @@ class ReadArticlesTest extends TestCase
     {
         $reply = factory('App\Models\Reply')
             ->create(['article_id' => $this->article->id]);
-        $this->get('/articles/' . $this->article->id)
+        $this->get($this->article->path())
             ->assertSee($reply->content);
     }
 

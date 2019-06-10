@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Reply;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,14 @@ class ReplyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Article $article)
     {
-        //
+        $article->addReply([
+            'content' => request('content'),
+            'nickname' => request('nickname'),
+            'email' => request('email')
+        ]);
+        return back();
     }
 
     /**
