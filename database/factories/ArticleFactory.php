@@ -11,8 +11,12 @@ $factory->define(App\Models\Article::class, function (Faker $faker) {
     $created_at = $faker->dateTimeThisMonth($updated_at);
     return [
         'title'      => $sentence,
+        'category_id' => function () {
+            return factory('App\Models\Category')->create()->id;
+        },
         'body'       => $faker->text(),
         'is_show'    => 1,
+        'order'      => 1,
         'created_at' => $created_at,
         'updated_at' => $updated_at
     ];

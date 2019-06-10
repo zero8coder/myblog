@@ -49,6 +49,7 @@
                     @endif
                 </ul>
             </div>
+            @include('articles.reply')
         </div>
         <!-- 目录 -->
         <div class="col-xs-3 article-affix">
