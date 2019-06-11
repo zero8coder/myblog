@@ -22,4 +22,17 @@ class ArticleTest extends TestCase
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->article->replies);
     }
+
+    /** @test */
+    public function a_article_can_add_a_reply()
+   {
+       $this->article->addReply([
+           'content' => "good",
+           'nickname' => "zero",
+           'email' => "812412222@qq.com"
+       ]);
+
+       $this->assertCount(1, $this->article->replies);
+
+   }
 }

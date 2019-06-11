@@ -49,7 +49,26 @@
                     @endif
                 </ul>
             </div>
+            <!-- 回复 -->
             @include('articles.reply')
+
+            <!-- 回复表单 -->
+            <div class="panel panel-default">
+                <form method="post" action="{{ route('reply.store',  [$article->id]) }} ">
+                    {{ csrf_field() }}
+                    <div class="panel-body">
+                        <div class="form-group">
+                            昵称 <input type="text" name="nickname">
+                            邮箱 <input  type="text" name="email">
+                        </div>
+                       <div class="form-group">
+                            <textarea class="form-control" name="content" rows="3"></textarea>
+                       </div>
+                        <button type="submit" class="btn btn-default">提交</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
         <!-- 目录 -->
         <div class="col-xs-3 article-affix">

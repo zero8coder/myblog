@@ -12,7 +12,7 @@ class ReplyArticleTest extends TestCase
    function a_tourist_can_reply_article()
    {
        $article = factory('App\Models\Article')->create();
-       $reply = factory('App\Models\Reply')->create();
+       $reply = factory('App\Models\Reply')->make();
        $this->post($article->path() . '/replies', $reply->toArray());
 
        $this->get($article->path())

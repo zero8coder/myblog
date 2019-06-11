@@ -22,4 +22,9 @@ class Article extends Model
     {
         return '/articles/' . $this->id;
     }
+
+    public function addReply($reply)
+    {
+        $this->replies()->create($reply);
+    }
 }
