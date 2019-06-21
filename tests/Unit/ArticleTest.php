@@ -35,4 +35,12 @@ class ArticleTest extends TestCase
        $this->assertCount(1, $this->article->replies);
 
    }
+
+   /** @test */
+   public function a_article_belongs_to_a_category()
+   {
+       $article = create("App\Models\Article");
+
+       $this->assertInstanceOf('App\Models\Category', $article->category);
+   }
 }

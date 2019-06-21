@@ -11,6 +11,7 @@ $factory->define(App\Models\Category::class, function (Faker $faker) {
     return [
         'name' => $word,
         'description'  =>  $sentence,
+        'slug' => $sentence,
         'post_count'    => 1,
         'is_show' => 1,
         'created_at' => $created_at,

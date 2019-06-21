@@ -17,13 +17,9 @@ class ArticlesTableSeeder extends Seeder
         $articles = factory(Article::class)
                         ->times(100)
                         ->make()
-                        ->each(function ($article, $index)
-                             use ($category_ids, $faker)
-        {
-            // 从分类 ID 数组中随机取出一个并赋值
-            $article->category_id = $faker->randomElement($category_ids);
-            $article->order = $index;
-        });
+                        ->each(function ($article, $index) {
+                             $article->order = $index;
+                        });
 
         Article::insert($articles->toArray());
     }

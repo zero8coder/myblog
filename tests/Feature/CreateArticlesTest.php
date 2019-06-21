@@ -24,16 +24,13 @@ class CreateArticlesTest extends TestCase
     /** @test */
     public function guests_may_not_create_articles()
     {
-        $this->expectException('Illuminate\Auth\AuthenticationException'); // 在此处抛出异常即代表测试通过
-        $article = factory('App\Models\Article')->create();
-        $this->post("/admin/articles", $article->toArray());
-    }
-
-    /** @test */
-    public function guests_may_not_see_the_create_article_page()
-    {
         $this->withExceptionHandling()
             ->get('/admin/articles/create')
             ->assertRedirect('/admin/login');
+
+        $article = factory('App\Models\Article')->create();
+        $this->post("/admin/articles", $article->toArray())
+             ->assertRedirect('/admin/login');
+
     }
 }
