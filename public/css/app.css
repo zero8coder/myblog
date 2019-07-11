@@ -8584,6 +8584,34 @@ body {
   text-decoration: none;
 }
 
+.article-content .reply-nickname {
+  outline: none;
+  border-width: 1px;
+  border-style: inset;
+  border-color: #d3e0e9;
+  -o-border-image: initial;
+     border-image: initial;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.article-content .reply-email {
+  outline: none;
+  border-width: 1px;
+  border-style: inset;
+  border-color: #d3e0e9;
+  -o-border-image: initial;
+     border-image: initial;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.article-content .reply-content {
+  resize: none;
+}
+
 .mask-layer {
   position: fixed;
   top: 0;

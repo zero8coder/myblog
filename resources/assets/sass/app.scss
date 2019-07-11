@@ -106,6 +106,7 @@ body {
     .article-time {
         text-align: right;
     }
+    // 内容
     .panel-body {
         color: #636b6f;
         padding: 15px 34px 15px 34px;
@@ -221,6 +222,8 @@ body {
 
 
     }
+
+    // 页码
     .article-page {
         .pager {
             li {
@@ -234,6 +237,31 @@ body {
                 }
             }
         }
+    }
+
+    .reply-nickname{
+        outline: none;
+        border-width: 1px;
+        border-style: inset;
+        border-color: #d3e0e9;
+        border-image: initial;
+        border-top:none;
+        border-left:none;
+        border-right:none;
+    }
+
+    .reply-email{
+        outline: none;
+        border-width: 1px;
+        border-style: inset;
+        border-color: #d3e0e9;
+        border-image: initial;
+        border-top:none;
+        border-left:none;
+        border-right:none;
+    }
+    .reply-content {
+        resize:none;
     }
 }
 
