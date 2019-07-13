@@ -24,7 +24,7 @@ class ReadArticlesTest extends TestCase
     /** @test */
     public function a_tourist_can_view_a_single_article()
     {
-        $this->get($this->article->path())
+        $this->get($this->article->pathWithoutCategory())
             ->assertSee($this->article->title);
     }
 
@@ -42,8 +42,21 @@ class ReadArticlesTest extends TestCase
     {
         $reply = factory('App\Models\Reply')
             ->create(['article_id' => $this->article->id]);
-        $this->get($this->article->path())
+        $this->get($this->article->pathWithoutCategory())
             ->assertSee($reply->content);
     }
+
+    /** @test */
+    public function a_article_belongs_to_a_category()
+    {
+        $this->assertInstanceOf("App\Models\Category", $this->article->category);
+    }
+
+    /** @test */
+    public function a_article_can_make_a_string_path()
+    {
+        $this->assertEquals("/articles/{$this->article->category->slug}/{$this->article->id}", $this->article->path());
+    }
+
 
 }

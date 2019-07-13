@@ -3,6 +3,7 @@
 Route::get('/', 'ArticlesController@index')->name('index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 Route::post('/articles/{article}/replies', 'RepliesController@store')->name('reply.store');
+Route::get('/articles/{category}/{article}', 'ArticlesController@showWithCategory')->name('articles.showWithCategory');
 Route::get('/categories/{category}/articles/{article}', 'ArticlesController@showWithCategory')->name('articles.showWithCategory');
 Route::get('/categories/{category}', 'CategoriesController@index')->name('categories.index');
 

@@ -20,7 +20,12 @@ class Article extends Model
 
     public function path()
     {
-        return '/articles/' . $this->id;
+        return "/articles/{$this->category->slug}/{$this->id}";
+    }
+
+    public function pathWithoutCategory()
+    {
+        return "/articles/{$this->id}";
     }
 
     public function addReply($reply)

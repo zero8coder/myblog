@@ -16,7 +16,8 @@ class CreateArticlesTest extends TestCase
         $this->actingAs(factory('App\Models\User')->create());
         $article = factory('App\Models\Article')->create();
         $this->post("/admin/articles", $article->toArray());
-        $this->get($article->path())
+
+        $this->get($article->pathWithoutCategory())
             ->assertSee($article->title)
             ->assertSee($article->body);
     }

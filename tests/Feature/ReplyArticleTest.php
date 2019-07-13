@@ -13,9 +13,9 @@ class ReplyArticleTest extends TestCase
    {
        $article = factory('App\Models\Article')->create();
        $reply = factory('App\Models\Reply')->make();
-       $this->post($article->path() . '/replies', $reply->toArray());
+       $this->post($article->pathWithoutCategory() . '/replies', $reply->toArray());
 
-       $this->get($article->path())
+       $this->get($article->pathWithoutCategory())
            ->assertSee($reply->content);
    }
 }
