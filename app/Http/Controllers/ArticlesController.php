@@ -22,7 +22,9 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::with('category')->find($id);
-
+        if ($article->is_show == 0 || $article->category->is_show == 0) {
+            return;
+        }
         // 获取 “上一篇” 的 ID
         $previousArticleID = Article::whereHas('category', function ($query) {
                                                 $query->where('is_show', 1);
@@ -45,7 +47,9 @@ class ArticlesController extends Controller
     public function showWithCategory(Category $category, $id)
     {
         $article = Article::with('category')->find($id);
-
+        if ($article->category_id != $category->id || $article->is_show == 0 || $article->category->is_show == 0) {
+            return;
+        }
         // 获取 “上一篇” 的 ID
         $previousArticleID = Article::whereHas('category', function ($query) {
                                                 $query->where('is_show', 1);

@@ -16,8 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Carbon::setLocale('zh');
-        \View::share('categoryMenus', Category::where('is_show', 1)->orderby('order', 'asc')->get());
-//        View()->composer(['layouts._header'], 'App\Http\ViewComposers\CategoryMenuComposer');
+        View()->composer(['layouts._header'], 'App\Http\ViewComposers\CategoryMenuComposer');
     }
 
     /**
