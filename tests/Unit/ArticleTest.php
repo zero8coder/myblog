@@ -39,7 +39,9 @@ class ArticleTest extends TestCase
    /** @test */
    public function a_article_belongs_to_a_category()
    {
-       $article = create("App\Models\Article");
+       $category = create('App\Models\Category');
+
+       $article = create("App\Models\Article", ['category_id' => $category->id]);
 
        $this->assertInstanceOf('App\Models\Category', $article->category);
    }

@@ -12,7 +12,8 @@ class ReadArticlesTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->article = factory('App\Models\Article')->create();
+        $this->category = create('App\Models\Category');
+        $this->article = create('App\Models\Article', ['category_id' => $this->category->id]);
     }
     /** @test */
     public function a_tourist_can_view_all_articles()
@@ -31,9 +32,8 @@ class ReadArticlesTest extends TestCase
     /** @test */
     public function a_tourist_can_view_a_single_article_with_category()
     {
-        $category = factory('App\Models\Category')->create();
-        $articleWithCateory = factory('App\Models\Article')->create(['category_id' => $category->id]);
-        $this->get('/categories/' . $category->id . '/articles/' . $articleWithCateory->id)
+        $articleWithCateory = create('App\Models\Article', ['category_id' => $this->category->id]);
+        $this->get('/categories/' . $this->category->slug . '/articles/' . $articleWithCateory->id)
             ->assertSee($articleWithCateory->title);
     }
 
@@ -59,15 +59,15 @@ class ReadArticlesTest extends TestCase
     }
 
     /** @test */
-//    public function a_tourist_can_filter_articles_according_to_a_category()
-//    {
-//        $category = create("App\Models\Category");
-//        $articleInCategory = create("App\Models\Article", ['category_id' => $category->id]);
-//        $articleNotInCategory = create("App\Models\Article");
-//        $this->get('/Articles/' . $category->slug)
-//            ->assertSee($articleInCategory->title)
-//            ->assertDontSee($articleNotInCategory->title);
-//    }
+    public function a_tourist_can_filter_articles_according_to_a_category()
+    {
+        $articleInCategory = create("App\Models\Article", ['category_id' => $this->category->id]);
+        $category = create('App\Models\Category');
+        $articleNotInCategory = create("App\Models\Article", ['category_id' => $category->id]);
+        $this->get('/categories/' . $this->category->slug)
+            ->assertSee($articleInCategory->title)
+            ->assertDontSee($articleNotInCategory->title);
+    }
 
 
 }

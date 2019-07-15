@@ -8,14 +8,23 @@ use Tests\TestCase;
 class ReplyArticleTest extends TestCase
 {
     use DatabaseMigrations;
+
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->category = create('App\Models\Category');
+        $this->article = create('App\Models\Article', ['category_id' => $this->category->id]);
+    }
+
    /** @test */
    function a_tourist_can_reply_article()
    {
-       $article = factory('App\Models\Article')->create();
-       $reply = factory('App\Models\Reply')->make();
-       $this->post($article->pathWithoutCategory() . '/replies', $reply->toArray());
 
-       $this->get($article->pathWithoutCategory())
+       $reply = make('App\Models\Reply');
+       $this->post($this->article->pathWithoutCategory() . '/replies', $reply->toArray());
+
+       $this->get($this->article->pathWithoutCategory())
            ->assertSee($reply->content);
    }
 
@@ -46,9 +55,8 @@ class ReplyArticleTest extends TestCase
    function publishReply($overrides = [])
    {
        $this->withExceptionHandling();
-       $article = create('App\Models\Article');
        $reply = make('App\Models\Reply', $overrides);
-       return   $this->post($article->pathWithoutCategory() . '/replies', $reply->toArray());
+       return   $this->post($this->article->pathWithoutCategory() . '/replies', $reply->toArray());
    }
 
 

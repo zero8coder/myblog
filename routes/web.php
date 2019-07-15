@@ -1,20 +1,20 @@
 <?php
 
 Route::get('/', 'ArticlesController@index')->name('index');
+Route::get('/categories', 'ArticlesController@index');
+Route::get('/categories/{category}', 'CategoriesController@index')->name('categories.index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 Route::post('/articles/{article}/replies', 'RepliesController@store')->name('reply.store');
-Route::get('/articles/{category}/{article}', 'ArticlesController@showWithCategory')->name('articles.showWithCategory');
 Route::get('/categories/{category}/articles/{article}', 'ArticlesController@showWithCategory')->name('articles.showWithCategory');
-Route::get('/categories/{category}', 'CategoriesController@index')->name('categories.index');
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'zero'], function() {
 
     Route::get('login', 'SessionsController@create')->name('login');
     Route::post('login', 'SessionsController@store')->name('admin.login');
 
     Route::get('index', 'ArticlesController@index')->name('admin.index');
     Route::get('/', 'ArticlesController@index')->name('admin');
-
 
     Route::resource('articles', 'ArticlesController', [ 'except' => 'show' ])
     ->names([

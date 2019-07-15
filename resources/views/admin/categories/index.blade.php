@@ -10,11 +10,11 @@
         @foreach ($categories as $category)
             <tr>
                 <td>
-                    <a href="{{ route('admin.categories.edit', $category->id)}}">
+                    <a href="{{ route('admin.categories.edit', $category->slug)}}">
                         <input name="" type="button" class="edit-img-btn" />
                     </a>
                     &nbsp;
-                    <form id="delForm_{{ $category->id }}" action="{{ route('admin.categories.destroy', $category->id) }}" method="post" style="display:inline">
+                    <form id="delForm_{{ $category->id }}" action="{{ route('admin.categories.destroy', $category->slug) }}" method="post" style="display:inline">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 

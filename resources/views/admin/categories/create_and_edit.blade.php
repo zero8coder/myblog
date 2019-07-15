@@ -10,7 +10,7 @@
         @include('admin.shared._errors')
 
         @if ($category->id)
-            <form action="{{ route('admin.categories.update', $category->id) }}" method="post" accept-charset="UTF-8">
+            <form action="{{ route('admin.categories.update', $category->slug) }}" method="post" accept-charset="UTF-8">
             <input type="hidden" name="_method" value="PATCH">
         @else
             <form action="{{ route('admin.categories.store') }}" method="post" accept-charset="UTF-8">

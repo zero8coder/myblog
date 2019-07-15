@@ -25,7 +25,7 @@
                             (if_route('articles.showWithCategory') && if_route_param('category', $categoryMenu->id))
                         )
                     }}">
-                        <a href="{{ route('categories.index', $categoryMenu->id) }}">{{ $categoryMenu->name }}</a>
+                        <a href="{{ route('categories.index', $categoryMenu->slug) }}">{{ $categoryMenu->name }}</a>
                     </li>
                @endforeach
 

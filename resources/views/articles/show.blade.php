@@ -29,7 +29,7 @@
                             @if (!isset($category))
                                 <a href="{{ route('articles.show', [$previousArticleID]) }}">
                             @else
-                                <a href="{{ route('articles.showWithCategory', [$article->category_id, $previousArticleID]) }}">
+                                <a href="{{ route('articles.showWithCategory', [$category->slug, $previousArticleID]) }}">
                             @endif
                                 上一篇
                             </a>
@@ -41,7 +41,7 @@
                             @if (!isset($category))
                                 <a href="{{ route('articles.show', [$nextArticleId]) }}">
                             @else
-                                <a href="{{ route('articles.showWithCategory', [$article->category_id, $nextArticleId]) }}">
+                                <a href="{{ route('articles.showWithCategory', [$category->slug, $nextArticleId]) }}">
                             @endif
                                 下一篇
                             </a>

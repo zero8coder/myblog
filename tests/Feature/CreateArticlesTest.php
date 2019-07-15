@@ -14,8 +14,9 @@ class CreateArticlesTest extends TestCase
     public function an_user_can_create_new_articles()
     {
         $this->actingAs(factory('App\Models\User')->create());
-        $article = make('App\Models\Article');
-        $response = $this->post("/admin/articles", $article->toArray());
+        $category = factory('App\Models\Category')->create();
+        $article = make('App\Models\Article', ['category_id' => $category->id]);
+        $response = $this->post("/zero/articles", $article->toArray());
         $this->get($response->headers->get('Location'))
             ->assertSee($article->title);
     }
@@ -24,12 +25,12 @@ class CreateArticlesTest extends TestCase
     public function guests_may_not_create_articles()
     {
         $this->withExceptionHandling()
-            ->get('/admin/articles/create')
-            ->assertRedirect('/admin/login');
+            ->get('/zero/articles/create')
+            ->assertRedirect('/zero/login');
 
         $article = factory('App\Models\Article')->create();
-        $this->post("/admin/articles", $article->toArray())
-             ->assertRedirect('/admin/login');
+        $this->post("/zero/articles", $article->toArray())
+             ->assertRedirect('/zero/login');
 
     }
 
@@ -65,7 +66,7 @@ class CreateArticlesTest extends TestCase
 
         $article =  make("App\Models\Article", $overrides);
 
-        return $this->post('/admin/articles', $article->toArray());
+        return $this->post('/zero/articles', $article->toArray());
     }
 
 

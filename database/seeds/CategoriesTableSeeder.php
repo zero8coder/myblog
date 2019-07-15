@@ -1,17 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Seeder;
 
-class SeedCategoriesTable extends Migration
+class CategoriesTableSeeder extends Seeder
 {
     /**
-     * Run the migrations.
+     * Run the database seeds.
      *
      * @return void
      */
-    public function up()
+    public function run()
     {
         $categories = [
             [
@@ -37,18 +35,6 @@ class SeedCategoriesTable extends Migration
             ],
         ];
 
-        DB::table('categories')->insert($categories);
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-//        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        DB::table('categories')->truncate();
-//        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        \App\Models\Category::insert($categories);
     }
 }

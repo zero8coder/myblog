@@ -18,7 +18,7 @@
 
                             <li class="media">
                                 @if ($category->id)
-                                    <a href="{{ route('articles.showWithCategory', [$category->id, $article->id]) }}">
+                                    <a href="{{ route('articles.showWithCategory', [$category->slug, $article->id]) }}">
                                 @else
                                     <a href="{{ route('articles.show', [$article->id]) }}">
                                 @endif
