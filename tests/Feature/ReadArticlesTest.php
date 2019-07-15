@@ -58,5 +58,16 @@ class ReadArticlesTest extends TestCase
         $this->assertEquals("/articles/{$this->article->category->slug}/{$this->article->id}", $this->article->path());
     }
 
+    /** @test */
+//    public function a_tourist_can_filter_articles_according_to_a_category()
+//    {
+//        $category = create("App\Models\Category");
+//        $articleInCategory = create("App\Models\Article", ['category_id' => $category->id]);
+//        $articleNotInCategory = create("App\Models\Article");
+//        $this->get('/Articles/' . $category->slug)
+//            ->assertSee($articleInCategory->title)
+//            ->assertDontSee($articleNotInCategory->title);
+//    }
+
 
 }

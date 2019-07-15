@@ -14,12 +14,10 @@ class CreateArticlesTest extends TestCase
     public function an_user_can_create_new_articles()
     {
         $this->actingAs(factory('App\Models\User')->create());
-        $article = factory('App\Models\Article')->create();
-        $this->post("/admin/articles", $article->toArray());
-
-        $this->get($article->pathWithoutCategory())
-            ->assertSee($article->title)
-            ->assertSee($article->body);
+        $article = make('App\Models\Article');
+        $response = $this->post("/admin/articles", $article->toArray());
+        $this->get($response->headers->get('Location'))
+            ->assertSee($article->title);
     }
 
     /** @test */
@@ -34,4 +32,42 @@ class CreateArticlesTest extends TestCase
              ->assertRedirect('/admin/login');
 
     }
+
+    /** @test */
+    public function a_article_requires_a_title()
+    {
+        $this->publishArticle(['title' => null])
+            ->assertSessionHasErrors('title');
+    }
+
+    /** @test */
+    public function a_article_requires_a_body()
+    {
+        $this->publishArticle(['body' => null])
+            ->assertSessionHasErrors('body');
+    }
+
+    /** @test */
+    public function a_article_requires_a_valid_category()
+    {
+        factory('App\Models\Category', 2)->create();
+
+        $this->publishArticle(['category_id' => null])
+            ->assertSessionHasErrors('category_id');
+
+        $this->publishArticle(['category_id' => 999])
+            ->assertSessionHasErrors('category_id');
+    }
+
+    public function publishArticle($overrides = [])
+    {
+        $this->withExceptionHandling()->signIn();
+
+        $article =  make("App\Models\Article", $overrides);
+
+        return $this->post('/admin/articles', $article->toArray());
+    }
+
+
+
 }

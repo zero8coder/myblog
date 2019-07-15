@@ -36,6 +36,11 @@ class RepliesController extends Controller
      */
     public function store(Article $article)
     {
+        $this->validate(request(), [
+            'content' => 'required',
+            'nickname' => 'required',
+            'email' => 'email'
+        ]);
         $article->addReply([
             'content' => request('content'),
             'nickname' => request('nickname'),

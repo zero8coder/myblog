@@ -47,6 +47,11 @@ class ArticlesController extends Controller
 
     public function store(ArticleRequest $request, Article $article)
     {
+        $this->validate($request, [
+           'title' => 'required',
+            'body' => 'required',
+            'category_id' => 'required|exists:categories,id'
+        ]);
         $article->fill($request->all());
         $article->save();
         return redirect()->route('admin.articles.index')->with('success', '添加成功');
