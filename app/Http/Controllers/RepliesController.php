@@ -36,17 +36,20 @@ class RepliesController extends Controller
      */
     public function store(Article $article)
     {
+        $messages = [
+            'nickname.required' => '昵称 不能为空。'
+        ];
         $this->validate(request(), [
-            'content' => 'required',
             'nickname' => 'required',
-            'email' => 'email'
-        ]);
+            'email' => 'email',
+            'content' => 'required',
+        ], $messages);
         $article->addReply([
             'content' => request('content'),
             'nickname' => request('nickname'),
             'email' => request('email')
         ]);
-        return back();
+        return back()->with('success', '添加成功');
     }
 
     /**

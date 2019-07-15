@@ -54,7 +54,7 @@ class ArticlesController extends Controller
         ]);
         $article->fill($request->all());
         $article->save();
-        return redirect()->route('admin.articles.index')->with('success', '添加成功');
+        return redirect()->route('admin.articles.index')->with('success', '评论成功');
     }
 
     public function update(ArticleRequest $request, Article $article)

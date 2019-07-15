@@ -7,6 +7,9 @@
 @stop
 
 @section('content')
+
+    @include('shared._messages')
+
     @if ($article->category->is_show == 1 && $article->is_show == 1)
         <div class="col-lg-9 col-md-9 article-content">
             <div class="panel panel-default">
@@ -55,15 +58,16 @@
             <!-- 回复表单 -->
 
             <div class="panel panel-default">
+                @include('shared._errors')
                 <form method="post" action="{{ route('reply.store',  [$article->id]) }} ">
                     {{ csrf_field() }}
                     <div class="panel-body">
                         <div class="form-group">
-                            昵称 <input class="reply-nickname" type="text" name="nickname">
-                            邮箱 <input class="reply-email" type="text" name="email">
+                            昵称 <input class="reply-nickname" type="text" name="nickname" value="{{ old('nickname') }}" required>
+                            邮箱 <input class="reply-email" type="text" name="email" value="{{ old('email') }}" required>
                         </div>
                        <div class="form-group">
-                            <textarea class="form-control reply-content" name="content" rows="4"></textarea>
+                            <textarea class="form-control reply-content" name="content" rows="4" required></textarea>
                        </div>
                         <button type="submit" class="btn btn-default">提交</button>
                     </div>
