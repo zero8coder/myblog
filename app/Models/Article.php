@@ -32,4 +32,22 @@ class Article extends Model
     {
         $this->replies()->create($reply);
     }
+
+    public function scopeFilter($query, $filters)
+    {
+        return $filters->apply($query);
+    }
+
+    public function scopeShow($query)
+    {
+        return $query->where('is_show', 1);
+    }
+
+    public function scopeCategoryShow($query)
+    {
+        return $query->whereHas('category', function ($categoryQuery) {
+            return $categoryQuery->where('is_show', 1);
+        });
+    }
+
 }

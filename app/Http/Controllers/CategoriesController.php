@@ -8,13 +8,7 @@ use Illuminate\Http\Request;
 class CategoriesController extends Controller
 {
     public function index(Category $category) {
-        $articles = Article::whereHas('category', function ($query) {
-                                                $query->where('is_show', 1);
-                                              })
-                            ->where('category_id', $category->id)
-                            ->where('is_show', 1)
-                            ->orderby('order', 'desc')
-                            ->paginate(17);
+        $articles = Article::latest("order")->categoryShow()->show()->where('category_id', $category->id)->paginate(17);
         return view('articles.index', compact('articles', 'category'));
     }
 }
