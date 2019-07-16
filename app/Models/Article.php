@@ -8,6 +8,16 @@ class Article extends Model
 {
     protected $fillable =['title', 'body', 'category_id', 'view_count', 'order', 'is_show'];
 
+    protected  static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('replyCount', function ($builder){
+           $builder->withCount('replies');
+        });
+    }
+
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -49,5 +59,11 @@ class Article extends Model
             return $categoryQuery->where('is_show', 1);
         });
     }
+
+    public function scopeOnShowArticle()
+    {
+        return $this->show()->categoryShow();
+    }
+
 
 }

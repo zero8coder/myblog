@@ -52,10 +52,10 @@
                     @endif
                 </ul>
             </div>
-            <!-- 回复 -->
+            <!-- 评论 -->
             @include('articles.reply')
 
-            <!-- 回复表单 -->
+            <!-- 评论表单 -->
 
             <div class="panel panel-default">
                 @include('shared._errors')
