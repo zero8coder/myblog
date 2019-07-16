@@ -62,7 +62,7 @@ class ReadArticlesTest extends TestCase
     public function a_tourist_can_filter_articles_according_to_a_category()
     {
         $articleInCategory = create("App\Models\Article", ['category_id' => $this->category->id]);
-        $category = create('App\Models\Category');
+        $category = create('App\Models\Category',['slug' => "xxx"]);
         $articleNotInCategory = create("App\Models\Article", ['category_id' => $category->id]);
         $this->get('/categories/' . $this->category->slug)
             ->assertSee($articleInCategory->title)
