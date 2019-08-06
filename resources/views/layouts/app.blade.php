@@ -20,7 +20,7 @@
                 @yield('content')
 
             </div>
-
+            <flash message="{{ session('flash') }}"></flash>
             @include('layouts._footer')
         </div>
 

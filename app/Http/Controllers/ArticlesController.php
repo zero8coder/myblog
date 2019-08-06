@@ -13,6 +13,7 @@ class ArticlesController extends Controller
     {
         $articles = Article::latest('order')->filter($filters);
         $articles = $articles->onShowArticle()->paginate(17);
+        session()->flash('flash', '欢迎你');
         return view('articles.index', compact('articles', 'category'));
     }
 

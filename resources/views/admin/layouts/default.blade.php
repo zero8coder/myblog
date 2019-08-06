@@ -13,9 +13,12 @@
             <div class="col-md-offset-1 col-md-10">
                @yield('content')
            </div>
+
         </div>
+
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+
     @yield('scripts')
 </body>
 </html>

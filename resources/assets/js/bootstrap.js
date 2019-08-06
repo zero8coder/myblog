@@ -53,3 +53,10 @@ if (token) {
 //     cluster: 'mt1',
 //     encrypted: true
 // });
+window.Vue = require('vue');
+
+window.events = new Vue();
+
+window.flash = function (message) {
+    window.events.$emit('flash', message);
+};
