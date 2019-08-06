@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    use RecordsActivity;
+
     protected $fillable =['title', 'body', 'category_id', 'view_count', 'order', 'is_show'];
 
     protected  static function boot()
@@ -15,6 +17,11 @@ class Article extends Model
         static::addGlobalScope('replyCount', function ($builder){
            $builder->withCount('replies');
         });
+
+        static::deleting(function ($article) {
+           $article->replies()->delete();
+        });
+
     }
 
 

@@ -26,6 +26,9 @@ class ArticlesController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
+        if(request()->wantsJson()){
+            return response([],204);
+        }
         session()->flash('success', '删除成功');
         return back();
     }

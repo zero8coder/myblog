@@ -60,6 +60,37 @@ class CreateArticlesTest extends TestCase
             ->assertSessionHasErrors('category_id');
     }
 
+    /** @test */
+    public function a_article_can_be_deleted()
+    {
+        $this->signIn();
+
+        $article = create('App\Models\Article');
+
+        $reply = create('App\Models\Reply', ['article_id' => $article->id]);
+
+        $response = $this->json('DELETE','zero/articles/' . $article->id);
+
+        $response->assertStatus(204);
+
+        $this->assertDatabaseMissing("articles", ['id' => $article->id ]);
+        $this->assertDatabaseMissing("replies", ['id' => $reply->id ]);
+
+    }
+
+    /** @test */
+    public function guests_cannot_delete_articles()
+    {
+        $this->withExceptionHandling();
+
+        $article = create('App\Models\Article');
+
+        $response = $this->delete('zero/articles/' . $article->id);
+
+        $response->assertRedirect('/zero/login');
+    }
+
+
     public function publishArticle($overrides = [])
     {
         $this->withExceptionHandling()->signIn();
