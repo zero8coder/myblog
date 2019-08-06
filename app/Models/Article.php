@@ -19,7 +19,7 @@ class Article extends Model
         });
 
         static::deleting(function ($article) {
-           $article->replies()->delete();
+           $article->replies->each->delete();
         });
 
     }

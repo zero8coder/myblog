@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use App\Models\Activity;
 
 class CreateArticlesTest extends TestCase
 {
@@ -75,6 +76,8 @@ class CreateArticlesTest extends TestCase
 
         $this->assertDatabaseMissing("articles", ['id' => $article->id ]);
         $this->assertDatabaseMissing("replies", ['id' => $reply->id ]);
+
+        $this->assertEquals(0, Activity::count());
 
     }
 

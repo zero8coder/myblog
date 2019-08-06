@@ -47,7 +47,7 @@ class ArticleTest extends TestCase
        $this->assertInstanceOf('App\Models\Category', $article->category);
    }
 
-    /** @test */
+
     public function it_records_activity_when_a_reply_is_created()
     {
         $this->signIn();
