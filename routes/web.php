@@ -37,6 +37,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'zero'], function() {
         'update'  => 'admin.categories.update',
     ]);
 
+     Route::resource('replies', 'RepliesController')
+    ->names([
+        'index'   => 'admin.replies.index',
+        'show'    => 'admin.replies.show',
+        'destroy' => 'admin.replies.destroy',
+    ]);
+
     Route::get('password', 'PasswordController@edit')->name('admin.password.edit');
     Route::post('password', 'PasswordController@update')->name('admin.password.update');
 });
