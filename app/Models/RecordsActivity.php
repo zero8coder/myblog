@@ -7,9 +7,16 @@ trait RecordsActivity
 {
     protected static function bootRecordsActivity()
     {
-        static::created(function ($article){
-            $article->recordActivity('created');
-        });
+        foreach (static::getActivityToRecord() as $event) {
+            static::$event(function ($model) use ($event){
+                $model->recordActivity($event);
+            });
+        }
+    }
+
+    protected static function getActivityToRecord()
+    {
+        return ['created'];
     }
 
     protected function recordActivity($event)
@@ -21,8 +28,15 @@ trait RecordsActivity
         ]);
     }
 
+    protected function activity()
+    {
+        return $this->morphMany('App\Models\Activity', 'subject');
+    }
+
     protected function getActivityType($event)
     {
-        return $event . '_' . strtolower((new \ReflectionClass($this))->getShortName());
+        $type = strtolower((new \ReflectionClass($this))->getShortName());
+        return "{$event}_{$type}";
+
     }
 }
