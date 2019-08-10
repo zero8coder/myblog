@@ -70,7 +70,7 @@ body {
 }
 
 /* page */
-.root-page, .index-page, .categories-index-page {
+.root-page, .index-page, .categories-index-page, .categories-page {
     .page-list {
 
         .panel-body {
@@ -239,6 +239,22 @@ body {
         }
     }
 
+    /* 回复列表 */
+
+    // 回复时间
+    .reply-time {
+        color:#ccc;
+        margin-left: 10px;
+    }
+    // 回复楼层
+    .reply-num {
+        color:#ccc;
+        float:right;
+    }
+
+
+    /* 回复表单 */
+
     .reply-nickname{
         outline: none;
         border-width: 1px;
@@ -249,7 +265,6 @@ body {
         border-left:none;
         border-right:none;
     }
-
     .reply-email{
         outline: none;
         border-width: 1px;
@@ -380,7 +395,7 @@ body {
     }
 }
 /* 后台文章编辑页 */
-.admin-articles-edit-page {
+.admin-articles-edit-page, .admin-articles-create-page{
     .editor-preview-side, .editor-preview-active-side, .editor-preview, .editor-preview-active {
         background: #fff;
         color: #636b6f;

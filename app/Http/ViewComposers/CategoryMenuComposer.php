@@ -9,9 +9,11 @@ class CategoryMenuComposer
 {
     public function compose(View $view)
     {
-        $categoryMenus = \Cache::rememberForever('categoryMenus', function () {
-            return Category::where('is_show', 1)->orderby('order', 'asc')->get();
-        });
+        // 缓存分类
+        // $categoryMenus = \Cache::rememberForever('categoryMenus', function () {
+        //     return Category::where('is_show', 1)->orderby('order', 'asc')->get();
+        // });
+        $categoryMenus = Category::where('is_show', 1)->orderby('order', 'asc')->get();
         $view->with(compact('categoryMenus'));
     }
 }

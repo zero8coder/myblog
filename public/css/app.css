@@ -8408,44 +8408,55 @@ body {
 
 .root-page .page-list .panel-body,
 .index-page .page-list .panel-body,
-.categories-index-page .page-list .panel-body {
+.categories-index-page .page-list .panel-body,
+.categories-page .page-list .panel-body {
   padding-bottom: 0;
 }
 
 .root-page .page-list .media-right,
 .index-page .page-list .media-right,
-.categories-index-page .page-list .media-right {
+.categories-index-page .page-list .media-right,
+.categories-page .page-list .media-right {
   float: right;
 }
 
 .root-page .page-list a,
 .index-page .page-list a,
-.categories-index-page .page-list a {
+.categories-index-page .page-list a,
+.categories-page .page-list a {
   color: #636b6f;
 }
 
 .root-page .page-list a:hover,
 .index-page .page-list a:hover,
-.categories-index-page .page-list a:hover {
+.categories-index-page .page-list a:hover,
+.categories-page .page-list a:hover {
   color: #fdbfcc;
   text-decoration: none;
 }
 
 .root-page .page-list hr,
 .index-page .page-list hr,
-.categories-index-page .page-list hr {
+.categories-index-page .page-list hr,
+.categories-page .page-list hr {
   margin-top: 0px;
   margin-bottom: 11px;
 }
 
 .root-page .page-list h5,
 .index-page .page-list h5,
-.categories-index-page .page-list h5 {
+.categories-index-page .page-list h5,
+.categories-page .page-list h5 {
   margin-top: 3px;
   margin-bottom: 2px;
 }
 
 /* 内容页 */
+
+.article-content {
+  /* 回复列表 */
+  /* 回复表单 */
+}
 
 .article-content .article-time {
   text-align: right;
@@ -8582,6 +8593,16 @@ body {
 .article-content .article-page .pager li a:hover {
   color: #fdbfcc;
   text-decoration: none;
+}
+
+.article-content .reply-time {
+  color: #ccc;
+  margin-left: 10px;
+}
+
+.article-content .reply-num {
+  color: #ccc;
+  float: right;
 }
 
 .article-content .reply-nickname {
@@ -8725,7 +8746,11 @@ body {
 .admin-articles-edit-page .editor-preview-side,
 .admin-articles-edit-page .editor-preview-active-side,
 .admin-articles-edit-page .editor-preview,
-.admin-articles-edit-page .editor-preview-active {
+.admin-articles-edit-page .editor-preview-active,
+.admin-articles-create-page .editor-preview-side,
+.admin-articles-create-page .editor-preview-active-side,
+.admin-articles-create-page .editor-preview,
+.admin-articles-create-page .editor-preview-active {
   background: #fff;
   color: #636b6f;
   padding: 15px 34px 15px 34px;
@@ -8735,7 +8760,11 @@ body {
 .admin-articles-edit-page .editor-preview-side hr,
 .admin-articles-edit-page .editor-preview-active-side hr,
 .admin-articles-edit-page .editor-preview hr,
-.admin-articles-edit-page .editor-preview-active hr {
+.admin-articles-edit-page .editor-preview-active hr,
+.admin-articles-create-page .editor-preview-side hr,
+.admin-articles-create-page .editor-preview-active-side hr,
+.admin-articles-create-page .editor-preview hr,
+.admin-articles-create-page .editor-preview-active hr {
   margin-top: 0px;
   border-top: 1px solid #d3e0e9;
   border-bottom: 1px solid rgba(211, 224, 233, 0.15);
@@ -8744,7 +8773,11 @@ body {
 .admin-articles-edit-page .editor-preview-side p,
 .admin-articles-edit-page .editor-preview-active-side p,
 .admin-articles-edit-page .editor-preview p,
-.admin-articles-edit-page .editor-preview-active p {
+.admin-articles-edit-page .editor-preview-active p,
+.admin-articles-create-page .editor-preview-side p,
+.admin-articles-create-page .editor-preview-active-side p,
+.admin-articles-create-page .editor-preview p,
+.admin-articles-create-page .editor-preview-active p {
   display: block;
   -webkit-margin-before: 1em;
           margin-block-start: 1em;
@@ -8764,7 +8797,11 @@ body {
 .admin-articles-edit-page .editor-preview-side h2,
 .admin-articles-edit-page .editor-preview-active-side h2,
 .admin-articles-edit-page .editor-preview h2,
-.admin-articles-edit-page .editor-preview-active h2 {
+.admin-articles-edit-page .editor-preview-active h2,
+.admin-articles-create-page .editor-preview-side h2,
+.admin-articles-create-page .editor-preview-active-side h2,
+.admin-articles-create-page .editor-preview h2,
+.admin-articles-create-page .editor-preview-active h2 {
   padding-bottom: .3em;
   font-size: 1.4em;
   line-height: 1.225;
@@ -8776,7 +8813,11 @@ body {
 .admin-articles-edit-page .editor-preview-side h3,
 .admin-articles-edit-page .editor-preview-active-side h3,
 .admin-articles-edit-page .editor-preview h3,
-.admin-articles-edit-page .editor-preview-active h3 {
+.admin-articles-edit-page .editor-preview-active h3,
+.admin-articles-create-page .editor-preview-side h3,
+.admin-articles-create-page .editor-preview-active-side h3,
+.admin-articles-create-page .editor-preview h3,
+.admin-articles-create-page .editor-preview-active h3 {
   font-size: 1.2em;
   line-height: 1.43;
   font-weight: 700;
@@ -8785,7 +8826,11 @@ body {
 .admin-articles-edit-page .editor-preview-side pre,
 .admin-articles-edit-page .editor-preview-active-side pre,
 .admin-articles-edit-page .editor-preview pre,
-.admin-articles-edit-page .editor-preview-active pre {
+.admin-articles-edit-page .editor-preview-active pre,
+.admin-articles-create-page .editor-preview-side pre,
+.admin-articles-create-page .editor-preview-active-side pre,
+.admin-articles-create-page .editor-preview pre,
+.admin-articles-create-page .editor-preview-active pre {
   margin: 1.5em -35px;
   border-radius: 0;
   padding: 1.5em 35px;
@@ -8795,7 +8840,11 @@ body {
 .admin-articles-edit-page .editor-preview-side pre code,
 .admin-articles-edit-page .editor-preview-active-side pre code,
 .admin-articles-edit-page .editor-preview pre code,
-.admin-articles-edit-page .editor-preview-active pre code {
+.admin-articles-edit-page .editor-preview-active pre code,
+.admin-articles-create-page .editor-preview-side pre code,
+.admin-articles-create-page .editor-preview-active-side pre code,
+.admin-articles-create-page .editor-preview pre code,
+.admin-articles-create-page .editor-preview-active pre code {
   background: transparent;
   display: block;
   padding: 0;
@@ -8810,7 +8859,11 @@ body {
 .admin-articles-edit-page .editor-preview-side blockquote,
 .admin-articles-edit-page .editor-preview-active-side blockquote,
 .admin-articles-edit-page .editor-preview blockquote,
-.admin-articles-edit-page .editor-preview-active blockquote {
+.admin-articles-edit-page .editor-preview-active blockquote,
+.admin-articles-create-page .editor-preview-side blockquote,
+.admin-articles-create-page .editor-preview-active-side blockquote,
+.admin-articles-create-page .editor-preview blockquote,
+.admin-articles-create-page .editor-preview-active blockquote {
   margin: 20px 0 !important;
   background-color: #f5f8fc;
   padding: 1rem;
@@ -8821,14 +8874,22 @@ body {
 .admin-articles-edit-page .editor-preview-side blockquote p,
 .admin-articles-edit-page .editor-preview-active-side blockquote p,
 .admin-articles-edit-page .editor-preview blockquote p,
-.admin-articles-edit-page .editor-preview-active blockquote p {
+.admin-articles-edit-page .editor-preview-active blockquote p,
+.admin-articles-create-page .editor-preview-side blockquote p,
+.admin-articles-create-page .editor-preview-active-side blockquote p,
+.admin-articles-create-page .editor-preview blockquote p,
+.admin-articles-create-page .editor-preview-active blockquote p {
   margin: 0;
 }
 
 .admin-articles-edit-page .editor-preview-side table,
 .admin-articles-edit-page .editor-preview-active-side table,
 .admin-articles-edit-page .editor-preview table,
-.admin-articles-edit-page .editor-preview-active table {
+.admin-articles-edit-page .editor-preview-active table,
+.admin-articles-create-page .editor-preview-side table,
+.admin-articles-create-page .editor-preview-active-side table,
+.admin-articles-create-page .editor-preview table,
+.admin-articles-create-page .editor-preview-active table {
   width: 100%;
   overflow: auto;
   margin: 25px 0;
@@ -8837,7 +8898,11 @@ body {
 .admin-articles-edit-page .editor-preview-side thead,
 .admin-articles-edit-page .editor-preview-active-side thead,
 .admin-articles-edit-page .editor-preview thead,
-.admin-articles-edit-page .editor-preview-active thead {
+.admin-articles-edit-page .editor-preview-active thead,
+.admin-articles-create-page .editor-preview-side thead,
+.admin-articles-create-page .editor-preview-active-side thead,
+.admin-articles-create-page .editor-preview thead,
+.admin-articles-create-page .editor-preview-active thead {
   display: table-header-group;
   vertical-align: middle;
   border-color: inherit;
@@ -8846,7 +8911,11 @@ body {
 .admin-articles-edit-page .editor-preview-side tr,
 .admin-articles-edit-page .editor-preview-active-side tr,
 .admin-articles-edit-page .editor-preview tr,
-.admin-articles-edit-page .editor-preview-active tr {
+.admin-articles-edit-page .editor-preview-active tr,
+.admin-articles-create-page .editor-preview-side tr,
+.admin-articles-create-page .editor-preview-active-side tr,
+.admin-articles-create-page .editor-preview tr,
+.admin-articles-create-page .editor-preview-active tr {
   display: table-row;
   vertical-align: inherit;
   border-color: inherit;
@@ -8855,14 +8924,22 @@ body {
 .admin-articles-edit-page .editor-preview-side table tr:nth-child(odd),
 .admin-articles-edit-page .editor-preview-active-side table tr:nth-child(odd),
 .admin-articles-edit-page .editor-preview table tr:nth-child(odd),
-.admin-articles-edit-page .editor-preview-active table tr:nth-child(odd) {
+.admin-articles-edit-page .editor-preview-active table tr:nth-child(odd),
+.admin-articles-create-page .editor-preview-side table tr:nth-child(odd),
+.admin-articles-create-page .editor-preview-active-side table tr:nth-child(odd),
+.admin-articles-create-page .editor-preview table tr:nth-child(odd),
+.admin-articles-create-page .editor-preview-active table tr:nth-child(odd) {
   background-color: #fff;
 }
 
 .admin-articles-edit-page .editor-preview-side table tr:nth-child(even),
 .admin-articles-edit-page .editor-preview-active-side table tr:nth-child(even),
 .admin-articles-edit-page .editor-preview table tr:nth-child(even),
-.admin-articles-edit-page .editor-preview-active table tr:nth-child(even) {
+.admin-articles-edit-page .editor-preview-active table tr:nth-child(even),
+.admin-articles-create-page .editor-preview-side table tr:nth-child(even),
+.admin-articles-create-page .editor-preview-active-side table tr:nth-child(even),
+.admin-articles-create-page .editor-preview table tr:nth-child(even),
+.admin-articles-create-page .editor-preview-active table tr:nth-child(even) {
   background-color: #F5F5F5;
 }
 
@@ -8873,7 +8950,15 @@ body {
 .admin-articles-edit-page .editor-preview td,
 .admin-articles-edit-page .editor-preview th,
 .admin-articles-edit-page .editor-preview-active td,
-.admin-articles-edit-page .editor-preview-active th {
+.admin-articles-edit-page .editor-preview-active th,
+.admin-articles-create-page .editor-preview-side td,
+.admin-articles-create-page .editor-preview-side th,
+.admin-articles-create-page .editor-preview-active-side td,
+.admin-articles-create-page .editor-preview-active-side th,
+.admin-articles-create-page .editor-preview td,
+.admin-articles-create-page .editor-preview th,
+.admin-articles-create-page .editor-preview-active td,
+.admin-articles-create-page .editor-preview-active th {
   padding: 6px 13px;
   border: 1px solid #ddd;
   display: table-cell;
@@ -8886,7 +8971,11 @@ body {
 .admin-articles-edit-page .editor-preview-side img,
 .admin-articles-edit-page .editor-preview-active-side img,
 .admin-articles-edit-page .editor-preview img,
-.admin-articles-edit-page .editor-preview-active img {
+.admin-articles-edit-page .editor-preview-active img,
+.admin-articles-create-page .editor-preview-side img,
+.admin-articles-create-page .editor-preview-active-side img,
+.admin-articles-create-page .editor-preview img,
+.admin-articles-create-page .editor-preview-active img {
   max-width: 100%;
   margin: 10px auto 30px auto;
   display: block;

@@ -1,9 +1,10 @@
 
-    @foreach ($replies as $reply)
-            <div class="panel panel-default">
+    @foreach ($replies as $key => $reply)
+            <div class="panel panel-default" id="reply">
                 <div class="panel-heading">
-                    {{ $reply->nickname}} 回复于
-                    {{ $reply->created_at->diffForHumans() }}
+                    {{ $reply->nickname}}
+                    <span class="reply-time">{{ $reply->created_at->diffForHumans() }}</span>
+                    <span class="reply-num">{{ $key+1+$replies_num }}楼</span>
                 </div>
 
                 <div class="panel-body">
@@ -15,4 +16,3 @@
     <div class="text-center" style="height: 40px">
         {!! $replies->render() !!}
     </div>
-

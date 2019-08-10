@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', 'ArticlesController@index')->name('index');
-Route::get('/categories', 'ArticlesController@index');
+Route::get('/categories', 'ArticlesController@index')->name('categories');
 Route::get('/categories/{category}', 'CategoriesController@index')->name('categories.index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 Route::post('/articles/{article}/replies', 'RepliesController@store')->name('reply.store');

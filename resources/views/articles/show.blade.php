@@ -150,8 +150,13 @@
             $(".large-pic").hide()
         })
 
-
-
+        // 回复分页跳转
+        $("ul.pagination>li>a").on("click", function(event) {
+            // 禁止分页a标签跳转
+            event.preventDefault();
+            var href = $(this).attr('href');
+            window.location.href = href+"#reply";
+        });
 
 
     </script>
