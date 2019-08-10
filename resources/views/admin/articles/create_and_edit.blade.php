@@ -77,6 +77,7 @@
 @section('styles')
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <!-- 高亮css -->
     <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/a11y-dark.min.css" rel="stylesheet">
 
 @stop
@@ -87,13 +88,25 @@
     <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
     <script src="{{ asset('js/inline-attachment.js') }}"></script>
     <script src="{{ asset('js/codemirror-4.inline-attachment.js') }}"></script>
 
+    <!-- 高亮代码 -->
+    <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
     <script>
-        var simplemde = new SimpleMDE({element: $("#editor")[0]});
+        var simplemde = new SimpleMDE({
+            element: $("#editor")[0],
+
+            renderingConfig: {
+                // 设置 highlight.js 生效
+                codeSyntaxHighlighting: true
+            },
+            // 快捷键
+            shortcuts: {
+                "togglePreview": "F9", // alter the shortcut for toggleOrderedList
+            }
+
+        });
 
         inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {
             uploadUrl: '{{ route("admin.articles.upload_image") }}',
@@ -121,4 +134,7 @@
             }
         });
     </script>
+
+
+
 @stop
