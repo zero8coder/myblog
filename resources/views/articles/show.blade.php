@@ -82,6 +82,11 @@
             </ul>
         </div>
 
+        <!--看板娘-->
+        @include('layouts._2dmm')
+
+
+
         <!--遮罩层-->
         <div class="mask-layer" ></div>
         <!--放大图片-->

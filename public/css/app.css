@@ -8365,6 +8365,46 @@ body {
   z-index: 8;
 }
 
+/* 2dmm */
+
+.waifu {
+  position: fixed;
+  z-index: 10;
+  bottom: 40px;
+  left: auto !important;
+  margin-left: 10px !important;
+}
+
+.waifu-tips {
+  top: -10px !important;
+  z-index: 0 !important;
+  opacity: 0;
+  margin: -20px 20px;
+  padding: 5px 10px;
+  border: 1px solid rgba(224, 186, 140, 0.62);
+  border-radius: 12px;
+  background-color: rgba(236, 217, 188, 0.5);
+  -webkit-box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+          box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: absolute;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+  -webkit-animation-duration: 50s;
+          animation-duration: 50s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+.waifu #live2d {
+  position: relative;
+}
+
 /* footer */
 
 .footer {
@@ -8835,6 +8875,7 @@ body {
   border-radius: 0;
   padding: 1.5em 35px;
   background: #384548;
+  color: #f8f8f2;
 }
 
 .admin-articles-edit-page .editor-preview-side pre code,

@@ -22,6 +22,38 @@ body {
     z-index: 8
 }
 
+/* 2dmm */
+.waifu {
+    position: fixed;
+    z-index: 10;
+    bottom: 40px;
+    left:auto !important;
+    margin-left: 10px !important;
+}
+
+.waifu-tips {
+    top:-10px !important;
+    z-index: 0 !important;
+    opacity: 0;
+    margin: -20px 20px;
+    padding: 5px 10px;
+    border: 1px solid rgba(224,186,140,.62);
+    border-radius: 12px;
+    background-color: rgba(236,217,188,.5);
+    box-shadow: 0 3px 15px 2px rgba(191,158,118,.2);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: absolute;
+    animation-delay: 5s;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-name: shake;
+    animation-timing-function: ease-in-out;
+}
+.waifu #live2d {
+    position: relative;
+}
+
 
 /* footer */
 
@@ -68,6 +100,8 @@ body {
         }
 
 }
+
+
 
 /* page */
 .root-page, .index-page, .categories-index-page, .categories-page {
@@ -440,6 +474,7 @@ body {
             border-radius: 0;
             padding: 1.5em 35px;
             background: #384548;
+            color: #f8f8f2;
             code {
                 background: transparent;
                 display: block;
