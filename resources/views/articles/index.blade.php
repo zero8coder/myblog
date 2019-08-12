@@ -40,6 +40,7 @@
         <div class="text-center" style="height: 40px">
             {!! $articles->render() !!}
         </div>
+
         @if (count($articles) == 17)
         <div class="text-center">
             <a href="http://www.miitbeian.gov.cn/" target="_blank" style="font-size: 11px; color:#ccc">粤ICP备19001767号</a>
@@ -50,8 +51,12 @@
             </div>
         @endif
     </div>
+    <!--看板娘-->
+    @include('layouts._2dmm')
 @else
     <div class="empty-block">暂无数据 ~_~ </div>
+     <!--看板娘-->
+    @include('layouts._2dmm')
     <div style="position:fixed; bottom:35px; width: 825px; text-align: center">
         <a href="http://www.miitbeian.gov.cn/" target="_blank" style="font-size: 11px; color:#ccc">粤ICP备19001767号</a>
     </div>
