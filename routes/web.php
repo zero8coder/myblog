@@ -12,6 +12,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'zero'], function() {
 
     Route::get('login', 'SessionsController@create')->name('login');
     Route::post('login', 'SessionsController@store')->name('admin.login');
+    Route::get('logout', 'SessionsController@destroy')->name('logout');
 
     Route::get('index', 'ArticlesController@index')->name('admin.index');
     Route::get('/', 'ArticlesController@index')->name('admin');

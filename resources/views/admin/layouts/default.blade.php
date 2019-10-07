@@ -20,5 +20,13 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     @yield('scripts')
+
+    <script>
+        $(function() {
+            $('#logoutBtn').on('click', function () {
+                window.location.href="{{ route('logout') }}";
+            });
+        });
+    </script>
 </body>
 </html>

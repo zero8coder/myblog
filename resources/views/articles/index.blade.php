@@ -25,7 +25,6 @@
                                     <div class="media-left"><h5>{{ $article->title }}<h5></div>
                                     </a>
                                     <div class="media-right">{{ $article->created_at->toDateString() }}</div>
-
                             </li>
 
                             @if (! $loop->last)
