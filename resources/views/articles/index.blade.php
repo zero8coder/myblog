@@ -23,8 +23,9 @@
                                     <a href="{{ route('articles.show', [$article->id]) }}">
                                 @endif
                                     <div class="media-left"><h5>{{ $article->title }}<h5></div>
+                                    </a>
                                     <div class="media-right">{{ $article->created_at->toDateString() }}</div>
-                                </a>
+
                             </li>
 
                             @if (! $loop->last)
