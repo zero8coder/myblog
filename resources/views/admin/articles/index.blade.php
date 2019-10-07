@@ -72,6 +72,7 @@
 
     <script>
         $(function() {
+            // 删除文章提示框
             var articleid;
             $('#delModel').on('show.bs.modal', function (e) {
                 articleid = $(e.relatedTarget).data("articleid");
@@ -82,8 +83,8 @@
                 var form = '#delForm_' + articleid;
                 $(form).submit();
             });
+
+
         });
     </script>
 @stop
-
-

@@ -2,8 +2,10 @@
 @section('title', $article->title)
 
 @section('styles')
+     <!--高亮代码引入-->
     <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/a11y-dark.min.css" rel="stylesheet">
-
+     <!--toastr提示框引入-->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 @stop
 
 @section('content')
@@ -96,8 +98,16 @@
 @stop
 
 @section('scripts')
+    <!--复制js引入-->
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <!--高亮代码引入-->
     <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <!--toastr提示框引入-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">
+
+    </script>
+
     <script type="text/javascript">
         // 文章侧栏导航栏
         var toc = $("#toc")
@@ -157,6 +167,44 @@
             var href = $(this).attr('href');
             window.location.href = href+"#reply";
         });
+
+        // 代码段加复制按钮
+        var clipboard = new ClipboardJS('.copy-btn');
+        clipboard.on('success', function(e) {
+            toastr.success('已经复制到粘贴板');
+        })
+        // 提示框配置
+        toastr.options = {
+            closeButton: false,
+            debug: false,
+            progressBar: true,
+            positionClass: "toast-top-center",
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "1000",
+            timeOut: "2000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        };
+        $(document).ready(function(){
+            $("pre").each(function(i,item){
+                $(item).children('code').attr("id", "code_" + i);
+                // 添加复制按钮
+                $(item).prepend('<button class="copy-btn" data-clipboard-target="#code_'+i+'"><span class="glyphicon glyphicon-file"></span></button>');
+
+                // 移到代码段显示复制按钮
+                $(item).hover(function(){
+                    $(item).children('button').css("opacity","1");
+                    },function(){
+                    $(item).children('button').css("opacity","0");
+                });
+            })
+        })
+
+
 
 
     </script>
