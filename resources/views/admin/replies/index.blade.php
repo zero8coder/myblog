@@ -8,7 +8,7 @@
 
 <div class="panel panel-default">
     <table class="table">
-        <th>操作</th><th>昵称</th><th>email</th><th>内容</th><th>创建时间</th>
+        <th>操作</th><th>昵称</th><th>email</th><th>是否显示</th><th>内容</th><th>创建时间</th>
         @foreach ($replies as $reply)
             <tr>
                 <td>
@@ -20,6 +20,11 @@
                 </td>
                 <td>{{ $reply->nickname }}</td>
                 <td>{{ $reply->email }}</td>
+                @if ($reply->is_show == 1)
+                    <td><span class="glyphicon glyphicon-ok" style="color:#66CD00"></span></td>
+                @elseif ($reply->is_show == 2)
+                    <td><span class="glyphicon glyphicon-remove" style="color:red"></span></td>
+                @endif
                 <td>{{ $reply->content }}</td>
                 <td>{{ $reply->created_at->toDateString() }}</td>
             </tr>

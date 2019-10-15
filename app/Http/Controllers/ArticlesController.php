@@ -19,7 +19,7 @@ class ArticlesController extends Controller
     public function show(Article $article, Request $request)
     {
         $replies_page = $request->get('page', 1);
-        $replies_paginate = 1;
+        $replies_paginate = 10;
         // 楼层数
         $replies_num = ($replies_page-1) * 1;
 
@@ -32,7 +32,7 @@ class ArticlesController extends Controller
         // 同理，获取 “下一篇” 的 ID
         $nextArticleId = Article::onShowArticle()->where('order', '>', $article->order)->min('id');
 
-        $replies = $article->replies()->paginate($replies_paginate);
+        $replies = $article->replies()->where('is_show', 1)->paginate($replies_paginate);
 
 
         return view('articles.show', compact('article', 'previousArticleID', 'nextArticleId', 'replies', 'replies_num'));
@@ -53,7 +53,7 @@ class ArticlesController extends Controller
         // 同理，获取 “下一篇” 的 ID
         $nextArticleId = Article::onShowArticle()->where('order', '>', $article->order)->where('category_id', $category->id)->min('id');
 
-        $replies = $article->replies()->paginate($replies_paginate);
+        $replies = $article->replies()->where('is_show', 1)->paginate($replies_paginate);
 
         return view('articles.show', compact('article', 'previousArticleID', 'nextArticleId', 'category', 'replies', 'replies_num'));
     }

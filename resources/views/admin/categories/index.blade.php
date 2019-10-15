@@ -11,14 +11,14 @@
             <tr>
                 <td>
                     <a href="{{ route('admin.categories.edit', $category->slug)}}">
-                        <input name="" type="button" class="edit-img-btn" />
+                        <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                     &nbsp;
                     <form id="delForm_{{ $category->id }}" action="{{ route('admin.categories.destroy', $category->slug) }}" method="post" style="display:inline">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <input class="del-img-btn" data-toggle="modal" data-target="#delModel" data-categoryid="{{$category->id}}"/>
+                        <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#delModel" data-categoryid="{{$category->id}}"></span>
                     </form>
                 </td>
 
