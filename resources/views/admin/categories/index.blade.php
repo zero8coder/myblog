@@ -6,7 +6,7 @@
 <br>
 <div class="panel panel-default">
     <table class="table">
-        <th>操作</th><th>分类</th><th>是否展示</th><th>排序</th>
+        <th>操作</th><th>分类</th><th>slug</th><th>是否展示</th><th>排序</th>
         @foreach ($categories as $category)
             <tr>
                 <td>
@@ -23,6 +23,7 @@
                 </td>
 
                 <td>{{ $category->name }}</td>
+                <td>{{ $category->slug }}</td>
 
                 @if ($category->is_show == 1)
                     <td><span class="glyphicon glyphicon-ok" style="color:#66CD00"></span></td>

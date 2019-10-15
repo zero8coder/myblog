@@ -22,6 +22,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="slug">slug：</label>
+                    <input type="text" name="slug" class="form-control" value="{{ old('slug', $category->slug) }}">
+                </div>
+
+                <div class="form-group">
                     <label for="name">是否显示：</label>
                     <select name="is_show"  class="form-control" required>
                         <option value="2"
@@ -52,4 +57,3 @@
     </div>
 </div>
 @stop
-
