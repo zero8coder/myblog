@@ -94,4 +94,12 @@ class ArticlesController extends Controller
 
         return $data;
     }
+
+    public function replies(Article $article, Request $request)
+    {
+        $replies_page = $request->get('page', 1);
+        $replies_paginate = 17;
+        $replies = $article->replies()->latest()->paginate($replies_paginate);
+        return view('admin.replies.index', compact('article', 'replies'));
+    }
 }

@@ -41,7 +41,7 @@ class ArticlesController extends Controller
     public function showWithCategory(Category $category, Article $article, Request $request)
     {
         $replies_page = $request->get('page', 1);
-        $replies_paginate = 1;
+        $replies_paginate = 10;
         // 楼层数
         $replies_num = ($replies_page-1) * 1;
 

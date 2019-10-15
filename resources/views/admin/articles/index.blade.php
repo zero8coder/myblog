@@ -11,19 +11,22 @@
             <tr>
                 <td>
                     <a href="{{ route('admin.articles.edit', $article->id)}}">
-                        <input name="" type="button" class="edit-img-btn" />
+                        <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                     &nbsp;
                     <form id="delForm_{{ $article->id }}" action="{{ route('admin.articles.destroy', $article->id) }}" method="post" style="display:inline">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-
-                        <input class="del-img-btn" data-toggle="modal" data-target="#delModel" data-articleid="{{$article->id}}"/>
+                        <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#delModel" data-articleid="{{$article->id}}"></span>
                     </form>
+                    &nbsp;
+                    <a href="{{ route('admin.articles.replies', $article->id)}}">
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                    </a>
                 </td>
                 <td>{{ $article->category->name }}</td>
                 <td> <a href="{{ route('admin.articles.edit', $article->id)}}">{{ $article->title }}</a></td>
-                 @if ($article->is_show == 1)
+                @if ($article->is_show == 1)
                     <td><span class="glyphicon glyphicon-ok" style="color:#66CD00"></span></td>
                 @elseif ($article->is_show == 2)
                     <td><span class="glyphicon glyphicon-remove" style="color:red"></span></td>

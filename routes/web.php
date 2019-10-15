@@ -27,6 +27,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'zero'], function() {
         'update'  => 'admin.articles.update',
     ]);
     Route::post('upload_image', 'ArticlesController@uploadImage')->name('admin.articles.upload_image');
+    Route::get('articles/{article}/replies', 'ArticlesController@replies')->name('admin.articles.replies');
 
     Route::resource('categories', 'CategoriesController', [ 'except' => 'show' ])
     ->names([

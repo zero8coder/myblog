@@ -59,5 +59,20 @@ class ReplyArticleTest extends TestCase
        return   $this->post($this->article->pathWithoutCategory() . '/replies', $reply->toArray());
    }
 
+   /** @test */
+   function an_user_can_view_an_article_all_relies()
+   {
+       $this->actingAs(factory('App\Models\User')->create());
+       $reply = make('App\Models\Reply');
+       $this->post($this->article->pathWithoutCategory() . '/replies', $reply->toArray());
+
+       $reply2 = make('App\Models\Reply');
+       $this->post($this->article->pathWithoutCategory() . '/replies', $reply2->toArray());
+
+       $this->get('/zero/articles/'.$this->article->id.'/replies')
+            ->assertSee($reply->content)
+            ->assertSee($reply2->content);
+   }
+
 
 }
