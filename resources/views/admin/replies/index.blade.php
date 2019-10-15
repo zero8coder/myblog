@@ -11,8 +11,13 @@
         <th>操作</th><th>昵称</th><th>email</th><th>内容</th><th>创建时间</th>
         @foreach ($replies as $reply)
             <tr>
-
-                <td></td>
+                <td>
+                    <form id="delForm_{{ $reply->id }}" action="{{ route('admin.replies.destroy', $reply->id) }}" method="post" style="display:inline">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#delModel" data-replyid="{{$reply->id}}"></span>
+                    </form>
+                </td>
                 <td>{{ $reply->nickname }}</td>
                 <td>{{ $reply->email }}</td>
                 <td>{{ $reply->content }}</td>
@@ -39,10 +44,10 @@
                 </h4>
             </div>
             <div class="modal-body">
-                是否删除该文章
+                是否删除该评论
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" id="delArticleBtn">
+                <button type="button" class="btn btn-default" id="delRelpyBtn">
                     <span class="glyphicon glyphicon-ok" style="color:#66CD00"></span>
                 </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" >
@@ -65,7 +70,7 @@
                 replyid = $(e.relatedTarget).data("replyid");
             });
 
-            $('#delArticleBtn').on('click', function () {
+            $('#delRelpyBtn').on('click', function () {
                 $('#delModel').modal('hide')
                 var form = '#delForm_' + replyid;
                 $(form).submit();
