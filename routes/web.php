@@ -8,7 +8,7 @@ Route::post('/articles/{article}/replies', 'RepliesController@store')->name('rep
 Route::get('/categories/{category}/articles/{article}', 'ArticlesController@showWithCategory')->name('articles.showWithCategory');
 
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'zero'], function() {
+Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_PREFIX')], function() {
 
     Route::get('login', 'SessionsController@create')->name('login');
     Route::post('login', 'SessionsController@store')->name('admin.login');
