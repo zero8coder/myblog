@@ -6,7 +6,7 @@
             <ul class="nav navbar-nav">
 
                 <li>
-                    <a href="{{ url('/') }}">忠</a>
+                    <a href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
                 </li>
 
                 <li class="{{
