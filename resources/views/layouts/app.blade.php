@@ -17,11 +17,11 @@
             @include('layouts._header')
 
             <div class="container">
+
                 @yield('content')
-                @if ({{ env('SHOW_2DMM') }})
-                    <!--看板娘-->
-                    @include('layouts._2dmm')
-                @endif
+                 <!--看板娘-->
+                @include('layouts._2dmm')
+
             </div>
 
 
@@ -34,7 +34,6 @@
 
 
     <!--看板娘-->
-        @if ({{ env('SHOW_2DMM') }})
         <!-- waifu-tips.js 依赖 JQuery 库 -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 
@@ -62,7 +61,6 @@
             /* 在 initModel 前添加 */
             initModel("//live2d-cdn.fghrsh.net/assets/1.4.2/waifu-tips.json")
         </script>
-        @endif
     <!--看板娘END-->
 
 
