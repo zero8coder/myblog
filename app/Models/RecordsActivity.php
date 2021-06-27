@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-
 trait RecordsActivity
 {
     protected static function bootRecordsActivity()
     {
         foreach (static::getActivityToRecord() as $event) {
-            static::$event(function ($model) use ($event){
+            static::$event(function ($model) use ($event) {
                 $model->recordActivity($event);
             });
         }
@@ -41,6 +40,5 @@ trait RecordsActivity
     {
         $type = strtolower((new \ReflectionClass($this))->getShortName());
         return "{$event}_{$type}";
-
     }
 }

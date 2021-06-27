@@ -18,8 +18,8 @@ class RepliesController extends Controller
     public function destroy(Reply $reply)
     {
         $reply->delete();
-        if(request()->wantsJson()){
-            return response([],204);
+        if (request()->wantsJson()) {
+            return response([], 204);
         }
         session()->flash('success', '删除成功');
         return back();

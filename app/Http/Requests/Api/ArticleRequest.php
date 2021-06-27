@@ -13,7 +13,7 @@ class ArticleRequest extends FormRequest
 
     public function rules()
     {
-        switch($this->method()) {
+        switch ($this->method()) {
             case 'POST':
                 return [
                     'title'       => 'required|string',
@@ -30,7 +30,6 @@ class ArticleRequest extends FormRequest
                 ];
                 break;
         }
-
     }
 
     public function attributes()

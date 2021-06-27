@@ -34,6 +34,5 @@ class PasswordController extends Controller
         $user->save();
         session()->flash('success', '修改成功');
         return back();
-
     }
 }

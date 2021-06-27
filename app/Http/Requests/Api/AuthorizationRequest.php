@@ -6,7 +6,6 @@ use Dingo\Api\Http\FormRequest;
 
 class AuthorizationRequest extends FormRequest
 {
-
     public function authorize()
     {
         return true;

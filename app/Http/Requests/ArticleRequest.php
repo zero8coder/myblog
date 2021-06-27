@@ -13,8 +13,7 @@ class ArticleRequest extends FormRequest
 
     public function rules()
     {
-        switch($this->method())
-        {
+        switch ($this->method()) {
             case 'POST':
             case 'PUT':
             case 'PATCH':

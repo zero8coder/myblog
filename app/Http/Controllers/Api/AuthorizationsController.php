@@ -40,7 +40,4 @@ class AuthorizationsController extends Controller
         Auth::guard('api')->logout();
         return $this->response->noContent();
     }
-
-
-
 }

@@ -10,18 +10,17 @@ class Article extends Model
 
     protected $fillable =['title', 'body', 'category_id', 'view_count', 'order', 'is_show'];
 
-    protected  static function boot()
+    protected static function boot()
     {
         parent::boot();
 
-        static::addGlobalScope('replyCount', function ($builder){
-           $builder->withCount('replies');
+        static::addGlobalScope('replyCount', function ($builder) {
+            $builder->withCount('replies');
         });
 
         static::deleting(function ($article) {
-           $article->replies->each->delete();
+            $article->replies->each->delete();
         });
-
     }
 
 
@@ -71,6 +70,4 @@ class Article extends Model
     {
         return $this->show()->categoryShow();
     }
-
-
 }
